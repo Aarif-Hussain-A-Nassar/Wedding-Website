@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-luxury-emerald: #0b3d2c;
-  --color-luxury-emerald-dark: #072a1e;
+  --color-luxury-emerald: #4a3c31; /* Replaced green with rich luxury bronze */
+  --color-luxury-emerald-dark: #2d231d; /* Replaced dark green with warm dark sepia */
   --color-luxury-gold: #d4af37;
   --color-luxury-gold-light: #f3e5ab;
   --color-luxury-gold-dark: #aa7c11;
@@ -62,7 +62,7 @@
 
 :root {
   --background: #fbfbf8; /* Luxury Cream */
-  --foreground: #0b3d2c; /* Luxury Emerald */
+  --foreground: #4a3c31; /* Luxury Bronze */
 }
 
 /* Premium Layout & Decorative Styles */
@@ -100,7 +100,7 @@ body {
 }
 
 .bg-emerald-gold-gradient {
-  background: linear-gradient(135deg, #0b3d2c 0%, #072a1e 100%);
+  background: linear-gradient(135deg, #fbfbf8 0%, #eae3d2 100%);
   border: 1px solid rgba(212, 175, 55, 0.3);
 }
 
@@ -109,11 +109,11 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(212, 175, 55, 0.2);
-  box-shadow: 0 10px 30px -10px rgba(11, 61, 44, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(74, 60, 49, 0.08);
 }
 
 .glass-card-dark {
-  background: rgba(11, 61, 44, 0.85);
+  background: rgba(74, 60, 49, 0.9); /* Replaced green with bronze sepia */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(212, 175, 55, 0.35);

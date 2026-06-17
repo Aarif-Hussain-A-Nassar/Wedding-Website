@@ -51,10 +51,10 @@ export default function OpeningScreen({ onOpen }: OpeningScreenProps) {
             scale: 1.05,
             transition: { duration: 1.2, ease: [0.43, 0.13, 0.23, 0.96] as const },
           }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-luxury-emerald-dark select-none overflow-hidden"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-luxury-cream select-none overflow-hidden"
         >
           {/* Inner Golden border */}
-          <div className="absolute inset-4 md:inset-8 border border-luxury-gold/40 rounded-sm pointer-events-none">
+          <div className="absolute inset-4 md:inset-8 border border-luxury-gold/30 rounded-sm pointer-events-none">
             <CornerOrnament className="top-2 left-2" />
             <CornerOrnament className="top-2 right-2 rotate-90" />
             <CornerOrnament className="bottom-2 left-2 -rotate-90" />
@@ -62,7 +62,7 @@ export default function OpeningScreen({ onOpen }: OpeningScreenProps) {
           </div>
 
           {/* Soft background glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-luxury-gold/5 blur-[120px] rounded-full pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-luxury-gold/10 blur-[120px] rounded-full pointer-events-none" />
 
           {/* Content container */}
           <div className="z-10 px-6 max-w-2xl text-center flex flex-col items-center justify-center">
@@ -73,7 +73,7 @@ export default function OpeningScreen({ onOpen }: OpeningScreenProps) {
               transition={{ duration: 1, delay: 0.2 }}
               className="mb-8"
             >
-              <span className="font-serif text-2xl md:text-3xl text-luxury-gold italic opacity-90 tracking-widest">
+              <span className="font-serif text-2xl md:text-3xl text-luxury-gold-dark italic opacity-90 tracking-widest">
                 ﷽
               </span>
             </motion.div>
@@ -81,9 +81,9 @@ export default function OpeningScreen({ onOpen }: OpeningScreenProps) {
             {/* Families line */}
             <motion.p
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.8 }}
+              animate={{ opacity: 0.9 }}
               transition={{ duration: 1.2, delay: 0.5 }}
-              className="font-sans text-xs md:text-sm tracking-[0.25em] uppercase text-luxury-gold-light mb-4"
+              className="font-sans text-xs md:text-sm tracking-[0.25em] uppercase text-luxury-emerald mb-4 font-semibold"
             >
               Together with their families
             </motion.p>
@@ -91,9 +91,9 @@ export default function OpeningScreen({ onOpen }: OpeningScreenProps) {
             {/* Invitation line */}
             <motion.p
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.7 }}
+              animate={{ opacity: 0.8 }}
               transition={{ duration: 1.2, delay: 0.7 }}
-              className="font-serif italic text-base md:text-lg text-luxury-beige mb-8"
+              className="font-serif italic text-base md:text-lg text-luxury-emerald/75 mb-8"
             >
               Invite you to celebrate the wedding of
             </motion.p>
@@ -103,7 +103,7 @@ export default function OpeningScreen({ onOpen }: OpeningScreenProps) {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.5, delay: 0.9 }}
-              className="font-serif text-3xl md:text-5xl lg:text-6xl text-gold-gradient tracking-wide mb-3 font-semibold filter drop-shadow"
+              className="font-serif text-3xl md:text-5xl lg:text-6xl text-gold-gradient tracking-wide mb-3 font-semibold filter drop-shadow-sm"
             >
               Aarif Hussain
             </motion.h1>
@@ -113,7 +113,7 @@ export default function OpeningScreen({ onOpen }: OpeningScreenProps) {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.5, delay: 1.2 }}
-              className="font-script text-4xl md:text-6xl text-luxury-gold-light my-2 select-none"
+              className="font-script text-4xl md:text-6xl text-luxury-gold-dark my-2 select-none"
             >
               &
             </motion.div>
@@ -123,7 +123,7 @@ export default function OpeningScreen({ onOpen }: OpeningScreenProps) {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.5, delay: 1.4 }}
-              className="font-serif text-3xl md:text-5xl lg:text-6xl text-gold-gradient tracking-wide mb-8 font-semibold filter drop-shadow"
+              className="font-serif text-3xl md:text-5xl lg:text-6xl text-gold-gradient tracking-wide mb-8 font-semibold filter drop-shadow-sm"
             >
               Nafla Nazar
             </motion.h1>
@@ -133,9 +133,9 @@ export default function OpeningScreen({ onOpen }: OpeningScreenProps) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.8 }}
               transition={{ duration: 1.2, delay: 1.7 }}
-              className="mb-12 border-y border-luxury-gold/25 py-2 px-6"
+              className="mb-12 border-y border-luxury-gold/30 py-2 px-6"
             >
-              <p className="font-sans text-xs md:text-sm tracking-[0.2em] uppercase text-luxury-beige">
+              <p className="font-sans text-xs md:text-sm tracking-[0.2em] uppercase text-luxury-emerald font-medium">
                 Saturday, September 19, 2026
               </p>
             </motion.div>
@@ -153,10 +153,10 @@ export default function OpeningScreen({ onOpen }: OpeningScreenProps) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleOpen}
-              className="relative px-8 py-3.5 bg-transparent border border-luxury-gold text-luxury-gold hover:text-luxury-emerald hover:bg-luxury-gold font-sans text-xs md:text-sm tracking-[0.2em] uppercase font-medium rounded-full cursor-pointer transition-all duration-500 ease-out shadow-lg shadow-black/30 overflow-hidden group flex items-center gap-3"
+              className="relative px-8 py-3.5 bg-transparent border border-luxury-gold text-luxury-emerald hover:text-luxury-cream hover:bg-luxury-emerald font-sans text-xs md:text-sm tracking-[0.2em] uppercase font-semibold rounded-full cursor-pointer transition-all duration-500 ease-out shadow-md overflow-hidden group flex items-center gap-3"
             >
               {/* Button shimmer */}
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
               
               <MailOpen className="w-4 h-4" />
               Open Invitation

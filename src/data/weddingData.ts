@@ -120,13 +120,18 @@ export const weddingData: WeddingData = {
   ],
   contacts: [
     {
-      label: "Contact Groom",
+      label: "Contact Groom (1)",
       phone: "9349610823",
       whatsappText: "Assalamu Alaikum. Regarding the wedding of Aarif & Nafla:",
     },
     {
-      label: "Contact Bride Family",
+      label: "Contact Groom (2)",
       phone: "7736513036",
+      whatsappText: "Assalamu Alaikum. Regarding the wedding of Aarif & Nafla:",
+    },
+    {
+      label: "Contact Bride",
+      phone: "9072415765",
       whatsappText: "Assalamu Alaikum. Regarding the wedding of Aarif & Nafla:",
     },
   ],
