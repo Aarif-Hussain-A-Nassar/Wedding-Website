@@ -94,6 +94,7 @@ export const weddingData: WeddingData = {
   },
   compliments: [
     { name: "Ajmal Hussain A Nassar\nJilsha Sara Varghese\nMohammed Nizam\nLiam Zayn" },
+    { name: "Fahmitha PS\nAmeena Razak\nSahala Razak\nAzhar KM\nIjaz Ahamed\nJesna" },
   ],
   gallery: [
     {
