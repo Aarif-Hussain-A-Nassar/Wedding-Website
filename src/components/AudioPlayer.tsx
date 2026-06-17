@@ -29,6 +29,24 @@ export default function AudioPlayer() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (!audioRef.current) return;
+
+      if (document.hidden) {
+        audioRef.current.pause();
+      } else if (isPlaying) {
+        audioRef.current.play().catch((err) => console.error("Audio resume failed:", err));
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [isPlaying]);
+
+  useEffect(() => {
     // Instantiate audio object
     const audio = new Audio("/audio/wedding-nasheed.mp3");
     audio.loop = true;
