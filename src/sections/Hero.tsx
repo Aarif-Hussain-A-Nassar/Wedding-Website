@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion, Variants } from "framer-motion";
 import { Heart } from "lucide-react";
 import Image from "next/image";
@@ -12,14 +12,16 @@ interface TimeLeft {
   seconds: number;
 }
 
+// Stable constant outside the component — never changes, never causes effect re-runs
+const TARGET_DATE = new Date("2026-09-19T10:30:00+05:30").getTime();
+
 export default function Hero() {
-  const targetDate = new Date("2026-09-19T10:30:00+05:30").getTime(); // Indian Standard Time
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const difference = targetDate - Date.now();
+      const difference = TARGET_DATE - Date.now();
       
       if (difference <= 0) {
         return { days: 0, hours: 0, minutes: 0, seconds: 0 };
@@ -46,10 +48,10 @@ export default function Hero() {
       clearInterval(interval);
       clearTimeout(mountTimer);
     };
-  }, [targetDate]);
+  }, []); // ✅ No deps needed — TARGET_DATE is a stable module-level constant
 
-  // Framer motion variants
-  const containerVariants: Variants = {
+  // Framer motion variants — memoized so object identity is stable across renders
+  const containerVariants: Variants = useMemo(() => ({
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -58,16 +60,16 @@ export default function Hero() {
         delayChildren: 0.3,
       },
     },
-  };
+  }), []);
 
-  const itemVariants: Variants = {
+  const itemVariants: Variants = useMemo(() => ({
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] as const },
     },
-  };
+  }), []);
 
   const timerCard = (value: number, label: string) => (
     <div className="flex flex-col items-center justify-center w-20 h-24 md:w-28 md:h-32 rounded-2xl glass-card border border-luxury-gold/30 shadow-md">

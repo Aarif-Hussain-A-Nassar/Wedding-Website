@@ -170,7 +170,7 @@ export default function Wishes() {
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="E.g., Faisal Rahman"
+                  placeholder="Your name"
                   className="w-full px-4 py-3 rounded-xl border border-luxury-gold/20 bg-white/50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-luxury-gold font-sans text-sm text-luxury-emerald placeholder-luxury-emerald/30 transition-all duration-300"
                 />
               </div>

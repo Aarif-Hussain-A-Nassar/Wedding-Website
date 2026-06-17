@@ -70,6 +70,8 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+  /* Smooth momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Scrollbar styling */
@@ -138,4 +140,15 @@ body {
 /* Smooth scrolling support */
 html {
   scroll-behavior: smooth;
+  /* Use dvh (dynamic viewport height) for mobile — accounts for the
+     browser URL bar appearing/disappearing. Falls back to svh then vh. */
+  min-height: -webkit-fill-available;
+  min-height: 100dvh;
+}
+
+/* Promote fixed-position overlay elements to their own compositor layer
+   so mobile scroll doesn't trigger repaints on them */
+.fixed {
+  will-change: transform;
+  transform: translateZ(0);
 }

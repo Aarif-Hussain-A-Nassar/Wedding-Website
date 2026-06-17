@@ -32,9 +32,24 @@ export default function FloatingParticles() {
       "rgba(251, 251, 248, 0.3)",  // Cream / Ivory
     ];
 
+    // Use clientWidth to avoid triggering on mobile URL-bar show/hide
+    // (which only changes innerHeight, not clientWidth)
+    let lastWidth = document.documentElement.clientWidth;
+
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      const newWidth = document.documentElement.clientWidth;
+      // Only reset canvas if the width actually changed (true resize),
+      // not just the mobile URL bar showing/hiding (height-only change)
+      if (newWidth !== lastWidth) {
+        lastWidth = newWidth;
+        canvas.width = newWidth;
+        canvas.height = document.documentElement.clientHeight;
+      }
+    };
+
+    const initCanvas = () => {
+      canvas.width = document.documentElement.clientWidth;
+      canvas.height = document.documentElement.clientHeight;
     };
 
     const createParticle = (isInitial = false): Particle => {
@@ -52,7 +67,7 @@ export default function FloatingParticles() {
     };
 
     const init = () => {
-      resizeCanvas();
+      initCanvas();
       particles = Array.from({ length: 45 }, () => createParticle(true));
     };
 
