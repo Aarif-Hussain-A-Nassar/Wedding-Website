@@ -3,6 +3,7 @@
 import React from "react";
 import { Calendar, Clock, MapPin, Map, CalendarPlus } from "lucide-react";
 import { motion, Variants } from "framer-motion";
+import Image from "next/image";
 import { weddingData } from "../data/weddingData";
 
 export default function Events() {
@@ -52,6 +53,19 @@ export default function Events() {
               <h3 className="font-serif text-2xl md:text-3xl font-semibold text-luxury-emerald tracking-wide mb-6">
                 {ceremony.title}
               </h3>
+
+              {/* Venue Sketch Illustration */}
+              <div className="relative w-full h-36 mb-6 rounded-2xl overflow-hidden border border-luxury-gold/15 bg-white/40 flex items-center justify-center p-2">
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/images/venue-town-hall.png"
+                    alt="Nehru Memorial Town Hall Sketch"
+                    fill
+                    sizes="(max-w-768px) 100vw, 350px"
+                    className="object-contain mix-blend-multiply opacity-80 hover:scale-103 transition-all duration-500"
+                  />
+                </div>
+              </div>
 
               {/* Details List */}
               <div className="space-y-4 mb-8">
@@ -126,6 +140,19 @@ export default function Events() {
               <h3 className="font-serif text-2xl md:text-3xl font-semibold text-luxury-emerald tracking-wide mb-6">
                 {reception.title}
               </h3>
+
+              {/* Venue Sketch Illustration */}
+              <div className="relative w-full h-36 mb-6 rounded-2xl overflow-hidden border border-luxury-gold/15 bg-white/40 flex items-center justify-center p-2">
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/images/venue-convention.png"
+                    alt="M K Convention Centre Sketch"
+                    fill
+                    sizes="(max-w-768px) 100vw, 350px"
+                    className="object-contain mix-blend-multiply opacity-80 hover:scale-103 transition-all duration-500"
+                  />
+                </div>
+              </div>
 
               {/* Details List */}
               <div className="space-y-4 mb-8">

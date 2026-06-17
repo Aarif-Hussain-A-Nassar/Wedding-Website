@@ -36,28 +36,28 @@ export const weddingData: WeddingData = {
     ceremony: {
       title: "Wedding Ceremony",
       date: "Saturday, September 19, 2026",
-      time: "10:30 AM onwards",
+      time: "11:30 AM",
       venue: "Nehru Memorial Town Hall, Mattancherry",
       mapsLink: "https://maps.app.goo.gl/GEztiAGfFt8v1tyN7",
       calendarLink: generateGoogleCalendarLink(
         "Wedding Ceremony: Aarif & Nafla",
         "Join us to celebrate the wedding ceremony of Aarif and Nafla.",
         "Nehru Memorial Town Hall, Mattancherry, Kochi",
-        "20260919T050000Z", // 10:30 AM IST is 05:00 AM UTC
-        "20260919T093000Z"  // 03:00 PM IST is 09:30 AM UTC
+        "20260919T060000Z", // 11:30 AM IST is 06:00 AM UTC
+        "20260919T103000Z"  // 04:00 PM IST is 10:30 AM UTC
       ),
     },
     reception: {
       title: "Reception",
       date: "Saturday, September 19, 2026",
-      time: "04:30 PM onwards",
+      time: "05:00 PM",
       venue: "M K Convention Centre, Eramalloor",
       mapsLink: "https://maps.app.goo.gl/tWu7YcXcueXHyiHN9",
       calendarLink: generateGoogleCalendarLink(
         "Wedding Reception: Aarif & Nafla",
         "Join us to celebrate the wedding reception of Aarif and Nafla.",
         "M K Convention Centre, Eramalloor",
-        "20260919T110000Z", // 04:30 PM IST is 11:00 AM UTC
+        "20260919T113000Z", // 05:00 PM IST is 11:30 AM UTC
         "20260919T163000Z"  // 10:00 PM IST is 04:30 PM UTC
       ),
     },
