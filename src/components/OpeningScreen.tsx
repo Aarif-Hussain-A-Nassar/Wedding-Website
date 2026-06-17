@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MailOpen } from "lucide-react";
+import Image from "next/image";
 
 interface OpeningScreenProps {
   onOpen: () => void;
@@ -65,122 +66,90 @@ export default function OpeningScreen({ onOpen }: OpeningScreenProps) {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-luxury-gold/10 blur-[120px] rounded-full pointer-events-none" />
 
           {/* Content container */}
-          <div className="z-10 px-4 md:px-6 max-w-2xl text-center flex flex-col items-center justify-center py-4">
-            {/* Arabic Bismillah Calligraphy */}
-            <motion.div
-              initial={{ opacity: 0, y: -15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="mb-6 flex flex-col items-center gap-1.5"
-            >
-              <div className="font-serif text-2xl md:text-3xl lg:text-4xl text-luxury-gold-dark tracking-wider select-none font-medium">
+          <div className="z-10 px-4 md:px-6 max-w-xl w-full text-center flex flex-col items-center justify-between min-h-[85vh] py-6">
+            {/* Top Section */}
+            <div className="flex flex-col items-center gap-4 mt-2">
+              {/* Arabic Bismillah Calligraphy */}
+              <motion.div
+                initial={{ opacity: 0, y: -15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                className="font-serif text-2xl md:text-3xl text-luxury-gold-dark tracking-wider select-none font-medium"
+              >
                 بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ
-              </div>
-              <p className="font-sans text-[10px] md:text-xs tracking-[0.25em] uppercase text-luxury-gold-dark/80 font-semibold leading-relaxed">
-                In the Name of Allah
-              </p>
-              <p className="font-sans text-[10px] md:text-xs tracking-[0.25em] uppercase text-luxury-gold-dark/80 font-semibold leading-relaxed">
-                The Most Gracious and the Most Merciful
-              </p>
-            </motion.div>
-
-            {/* Invitation Text */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.9 }}
-              transition={{ duration: 1.2, delay: 0.5 }}
-              className="font-sans text-[11px] md:text-[13px] tracking-[0.22em] uppercase text-luxury-emerald/90 mb-8 max-w-xl leading-relaxed font-semibold"
-            >
-              We cordially invite your esteemed presence &<br className="hidden md:inline" /> blessings with family<br />
-              on the auspicious occasion of the marriage of
-            </motion.p>
-
-            {/* Names & Parents details */}
-            <div className="flex flex-col items-center gap-5 mb-8 w-full">
-              {/* Groom */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.5, delay: 0.8 }}
-                className="flex flex-col items-center"
-              >
-                <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-gold-gradient tracking-wide font-semibold filter drop-shadow-sm">
-                  Aarif Hussain
-                </h1>
-                <p className="font-sans text-[9px] md:text-[11px] tracking-[0.22em] uppercase text-luxury-gold-dark/75 font-semibold mt-1">
-                  Son of Nassar A & Kamaruneesa PM
-                </p>
               </motion.div>
 
-              {/* Ampersand */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.5, delay: 1.1 }}
-                className="font-script text-3xl md:text-4xl text-luxury-gold-dark select-none"
+              {/* Simple elegant label */}
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.8 }}
+                transition={{ duration: 1.2, delay: 0.5 }}
+                className="font-sans text-[10px] md:text-xs tracking-[0.3em] uppercase text-luxury-gold-dark/80 font-semibold"
               >
-                &
-              </motion.div>
-
-              {/* Bride */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.5, delay: 1.3 }}
-                className="flex flex-col items-center"
-              >
-                <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl text-gold-gradient tracking-wide font-semibold filter drop-shadow-sm">
-                  Nafla Nazar
-                </h1>
-                <p className="font-sans text-[9px] md:text-[11px] tracking-[0.22em] uppercase text-luxury-gold-dark/75 font-semibold mt-1">
-                  Daughter of Nazar T Y & Zeena Nazar
-                </p>
-              </motion.div>
+                The Wedding Invitation
+              </motion.p>
             </div>
 
-            {/* Special Day Invitation Quote */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.85 }}
-              transition={{ duration: 1.2, delay: 1.6 }}
-              className="font-sans text-[10px] md:text-[12px] tracking-[0.2em] uppercase text-luxury-gold-dark/90 max-w-xl leading-relaxed mb-8 font-medium border-t border-luxury-gold/20 pt-6"
-            >
-              We would like to invite you to celebrate with us the most<br className="hidden md:inline" /> special day of our lives. It would be an honour to have you<br className="hidden md:inline" /> present at this important moment
-            </motion.p>
-
-            {/* Date line */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.8 }}
-              transition={{ duration: 1.2, delay: 1.8 }}
-              className="mb-8 border-y border-luxury-gold/30 py-2 px-6"
-            >
-              <p className="font-sans text-xs md:text-sm tracking-[0.2em] uppercase text-luxury-emerald font-semibold">
-                Saturday, September 19, 2026
-              </p>
-            </motion.div>
-
-            {/* Animated Button */}
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 1.2,
-                delay: 2.1,
-                type: "spring",
-                stiffness: 100,
-              }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={handleOpen}
-              className="relative px-8 py-3.5 bg-transparent border border-luxury-gold text-luxury-emerald hover:text-luxury-cream hover:bg-luxury-emerald font-sans text-xs md:text-sm tracking-[0.2em] uppercase font-semibold rounded-full cursor-pointer transition-all duration-500 ease-out shadow-md overflow-hidden group flex items-center gap-3"
-            >
-              {/* Button shimmer */}
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+            {/* Middle Section: Names & Date */}
+            <div className="flex flex-col items-center my-auto py-8">
+              <motion.h1
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1.5, delay: 0.8 }}
+                className="font-serif text-4xl md:text-6xl text-gold-gradient tracking-wide font-bold filter drop-shadow-sm"
+              >
+                Aarif & Nafla
+              </motion.h1>
               
-              <MailOpen className="w-4 h-4" />
-              Open Invitation
-            </motion.button>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.6 }}
+                transition={{ duration: 1.2, delay: 1.1 }}
+                className="font-sans text-[9px] md:text-[10px] tracking-[0.25em] uppercase text-luxury-emerald/70 mt-3 font-semibold"
+              >
+                19 . 09 . 2026
+              </motion.p>
+            </div>
+
+            {/* Bottom Section: Button & Image */}
+            <div className="flex flex-col items-center w-full gap-6">
+              {/* Animated Button */}
+              <motion.button
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 1.2,
+                  delay: 1.4,
+                  type: "spring",
+                  stiffness: 100,
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={handleOpen}
+                className="relative px-10 py-4 bg-transparent border border-luxury-gold text-luxury-emerald hover:text-luxury-cream hover:bg-luxury-emerald font-sans text-xs md:text-sm tracking-[0.25em] uppercase font-bold rounded-full cursor-pointer transition-all duration-500 ease-out shadow-md overflow-hidden group flex items-center gap-3 z-20"
+              >
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out" />
+                <MailOpen className="w-4 h-4" />
+                Open Invitation
+              </motion.button>
+
+              {/* Large Grounded Arch Illustration */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 0.9, y: 0 }}
+                transition={{ duration: 1.5, delay: 1.7 }}
+                className="relative w-full max-w-[340px] h-48 md:max-w-[460px] md:h-64 mt-2 pointer-events-none overflow-hidden"
+              >
+                <Image
+                  src="/images/nikkah-arch-empty.png"
+                  alt="Islamic Wedding Arch Sketch"
+                  fill
+                  sizes="(max-w-768px) 100vw, 460px"
+                  className="object-contain mix-blend-multiply opacity-85"
+                  priority
+                />
+              </motion.div>
+            </div>
           </div>
         </motion.div>
       )}

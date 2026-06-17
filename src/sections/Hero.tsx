@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, Variants } from "framer-motion";
 import { Heart } from "lucide-react";
+import Image from "next/image";
 
 interface TimeLeft {
   days: number;
@@ -106,43 +107,104 @@ export default function Hero() {
           <div className="h-[1px] w-8 md:w-16 bg-luxury-gold/40" />
         </motion.div>
 
-        {/* Heading */}
+        {/* Arabic Bismillah Calligraphy */}
+        <motion.div
+          variants={itemVariants}
+          className="mb-6 flex flex-col items-center gap-1.5"
+        >
+          <div className="font-serif text-2xl md:text-3xl text-luxury-gold-dark tracking-wider select-none font-medium" >
+            بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ
+          </div>
+          <p className="font-sans text-[9px] md:text-[10px] tracking-[0.25em] uppercase text-luxury-gold-dark/80 font-semibold leading-relaxed">
+            In the Name of Allah, The Most Gracious, The Most Merciful
+          </p>
+        </motion.div>
+ 
+        {/* Invitation Wording */}
         <motion.p
           variants={itemVariants}
-          className="font-sans text-xs md:text-sm tracking-[0.3em] uppercase text-luxury-gold-dark font-semibold mb-3"
+          className="font-sans text-[10px] md:text-xs tracking-[0.22em] uppercase text-luxury-emerald/90 mb-8 max-w-xl leading-relaxed font-semibold px-4"
         >
-          Save The Date
+          We cordially invite your esteemed presence &<br className="hidden md:inline" /> blessings with family<br />
+          on the auspicious occasion of the marriage of
         </motion.p>
-
-        <motion.h1
+ 
+        {/* Names & Parentage details */}
+        <motion.div
           variants={itemVariants}
-          className="font-serif text-5xl md:text-8xl text-gold-gradient tracking-wide mb-4 font-bold select-none drop-shadow-sm"
+          className="flex flex-col items-center gap-5 mb-8 w-full"
         >
-          Aarif & Nafla
-        </motion.h1>
-
+          {/* Groom */}
+          <div className="flex flex-col items-center">
+            <h1 className="font-serif text-4xl md:text-6xl text-gold-gradient tracking-wide font-bold filter drop-shadow-sm">
+              Aarif Hussain
+            </h1>
+            <p className="font-sans text-[9px] md:text-[11px] tracking-[0.22em] uppercase text-luxury-gold-dark/75 font-semibold mt-1">
+              Son of Nassar A & Kamaruneesa PM
+            </p>
+          </div>
+ 
+          {/* Ampersand */}
+          <div className="font-script text-3xl md:text-4xl text-luxury-gold-dark select-none">
+            &
+          </div>
+ 
+          {/* Bride */}
+          <div className="flex flex-col items-center">
+            <h1 className="font-serif text-4xl md:text-6xl text-gold-gradient tracking-wide font-bold filter drop-shadow-sm">
+              Nafla Nazar
+            </h1>
+            <p className="font-sans text-[9px] md:text-[11px] tracking-[0.22em] uppercase text-luxury-gold-dark/75 font-semibold mt-1">
+              Daughter of Nazar T Y & Zeena Nazar
+            </p>
+          </div>
+        </motion.div>
+ 
         {/* Subtitle */}
         <motion.p
           variants={itemVariants}
-          className="font-serif italic text-lg md:text-2xl text-luxury-emerald/80 max-w-xl mb-12 px-4 leading-relaxed font-light"
+          className="font-serif italic text-lg md:text-xl text-luxury-emerald/80 max-w-xl mb-8 px-4 leading-relaxed font-light"
         >
           &ldquo;A journey of love, faith and togetherness.&rdquo;
         </motion.p>
-
+ 
+        {/* Couple Arch Illustration (Nikkah specific) */}
+        <motion.div
+          variants={itemVariants}
+          className="relative w-full max-w-[300px] h-44 md:max-w-[400px] md:h-56 mb-10 pointer-events-none overflow-hidden"
+        >
+          <Image
+            src="/images/nikkah-arch-couple.png"
+            alt="Aarif & Nafla under Nikkah Wedding Arch Sketch"
+            fill
+            sizes="(max-w-768px) 100vw, 400px"
+            className="object-contain mix-blend-multiply opacity-85 hover:scale-[1.02] transition-transform duration-700 ease-out"
+            priority
+          />
+        </motion.div>
+ 
         {/* Live Countdown Timer */}
-        <motion.div variants={itemVariants} className="flex justify-center gap-3 md:gap-5 mb-16">
+        <motion.div variants={itemVariants} className="flex justify-center gap-3 md:gap-5 mb-10">
           {timerCard(timeLeft.days, "Days")}
           {timerCard(timeLeft.hours, "Hours")}
           {timerCard(timeLeft.minutes, "Mins")}
           {timerCard(timeLeft.seconds, "Secs")}
         </motion.div>
-
+ 
+        {/* Invitation Quote */}
+        <motion.p
+          variants={itemVariants}
+          className="font-sans text-[9px] md:text-[11px] tracking-[0.18em] uppercase text-luxury-gold-dark/90 max-w-xl leading-relaxed mb-8 font-medium px-4"
+        >
+          We would like to invite you to celebrate with us the most<br className="hidden md:inline" /> special day of our lives. It would be an honour to have you<br className="hidden md:inline" /> present at this important moment
+        </motion.p>
+ 
         {/* Event details summary */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-col items-center justify-center font-sans tracking-[0.15em] text-xs uppercase text-luxury-gold-dark"
+          className="flex flex-col items-center justify-center font-sans tracking-[0.15em] text-xs uppercase text-luxury-gold-dark border-t border-luxury-gold/25 pt-6 w-full max-w-md"
         >
-          <span>Saturday, September 19, 2026</span>
+          <span className="font-semibold">Saturday, September 19, 2026</span>
           <span className="text-[10px] text-luxury-emerald/65 mt-1 font-medium">Kochi, Kerala</span>
         </motion.div>
 

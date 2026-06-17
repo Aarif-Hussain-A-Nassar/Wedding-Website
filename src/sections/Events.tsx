@@ -63,6 +63,7 @@ export default function Events() {
                     fill
                     sizes="(max-w-768px) 100vw, 350px"
                     className="object-contain mix-blend-multiply opacity-80 hover:scale-103 transition-all duration-500"
+                    style={{ filter: "contrast(1.15) brightness(1.08)" }}
                   />
                 </div>
               </div>
@@ -150,6 +151,7 @@ export default function Events() {
                     fill
                     sizes="(max-w-768px) 100vw, 350px"
                     className="object-contain mix-blend-multiply opacity-80 hover:scale-103 transition-all duration-500"
+                    style={{ filter: "contrast(1.15) brightness(1.08)" }}
                   />
                 </div>
               </div>
