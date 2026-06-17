@@ -28,8 +28,8 @@ export default function Wishes() {
     const mountTimer = setTimeout(async () => {
       setIsMounted(true);
       
-      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://kdxaaiogauoqzdmkqghh.supabase.co';
+      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_ER90Jqyl29cT1zeI5YYKAw_WksFb6Y3';
 
       console.log("[Wishes] Supabase URL:", supabaseUrl ? "configured" : "MISSING");
       console.log("[Wishes] Supabase Key:", supabaseKey ? `configured (starts with: ${supabaseKey.substring(0, 10)}...)` : "MISSING");
@@ -104,8 +104,8 @@ export default function Wishes() {
       date: new Date().toISOString().split("T")[0],
     };
 
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://kdxaaiogauoqzdmkqghh.supabase.co';
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_ER90Jqyl29cT1zeI5YYKAw_WksFb6Y3';
 
     if (supabaseUrl && supabaseKey) {
       try {
