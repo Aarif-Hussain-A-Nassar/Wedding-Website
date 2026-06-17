@@ -69,7 +69,7 @@ export const weddingData: WeddingData = {
       siblings: [
         {
           name: "Ajmal Hussain A Nassar",
-          spouse: "Jilsha Sara Varghese",
+          spouse: "Jilsha Sara",
           children: ["Liam"],
         },
       ],
