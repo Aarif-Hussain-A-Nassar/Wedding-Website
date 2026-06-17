@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Send, Sparkles, User, MessageSquare } from "lucide-react";
+import React, { useState, useEffect, useCallback } from "react";
+import { Send, Sparkles, User, MessageSquare, RefreshCw } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
 import { weddingData } from "../data/weddingData";
@@ -13,6 +13,7 @@ export default function Wishes() {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   // Helper to trigger theme-colored confetti
   const triggerConfetti = () => {
@@ -24,72 +25,62 @@ export default function Wishes() {
     });
   };
 
-  useEffect(() => {
-    const mountTimer = setTimeout(async () => {
-      setIsMounted(true);
-      
-      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://kdxaaiogauoqzdmkqghh.supabase.co';
-      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_ER90Jqyl29cT1zeI5YYKAw_WksFb6Y3';
+  const fetchWishes = useCallback(async () => {
+    setIsRefreshing(true);
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://kdxaaiogauoqzdmkqghh.supabase.co';
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_ER90Jqyl29cT1zeI5YYKAw_WksFb6Y3';
 
-      console.log("[Wishes] Supabase URL:", supabaseUrl ? "configured" : "MISSING");
-      console.log("[Wishes] Supabase Key:", supabaseKey ? `configured (starts with: ${supabaseKey.substring(0, 10)}...)` : "MISSING");
-
-      if (supabaseUrl && supabaseKey) {
-        try {
-          // Try ordering by created_at first, fall back to id if that fails
-          let res = await fetch(`${supabaseUrl}/rest/v1/wishes?select=*&order=created_at.desc`, {
+    if (supabaseUrl && supabaseKey) {
+      try {
+        let res = await fetch(`${supabaseUrl}/rest/v1/wishes?select=*&order=created_at.desc`, {
+          headers: {
+            'apikey': supabaseKey,
+            'Authorization': `Bearer ${supabaseKey}`
+          }
+        });
+        
+        if (!res.ok) {
+          res = await fetch(`${supabaseUrl}/rest/v1/wishes?select=*&order=id.desc`, {
             headers: {
               'apikey': supabaseKey,
               'Authorization': `Bearer ${supabaseKey}`
             }
           });
-          
-          // If created_at column doesn't exist, try ordering by id
-          if (!res.ok) {
-            console.warn("[Wishes] Fetch with created_at ordering failed (status:", res.status, "), retrying with id ordering...");
-            const errorBody = await res.text();
-            console.warn("[Wishes] Error response:", errorBody);
-            
-            res = await fetch(`${supabaseUrl}/rest/v1/wishes?select=*&order=id.desc`, {
-              headers: {
-                'apikey': supabaseKey,
-                'Authorization': `Bearer ${supabaseKey}`
-              }
-            });
-          }
-          
-          if (res.ok) {
-            const data = await res.json();
-            console.log("[Wishes] Loaded", data.length, "wishes from Supabase");
-            setWishes(data);
-            return;
-          } else {
-            const errorBody = await res.text();
-            console.error("[Wishes] Supabase fetch failed. Status:", res.status, "Body:", errorBody);
-            console.error("[Wishes] This likely means your Supabase anon key is invalid. It should be a JWT token starting with 'eyJ...'");
-          }
-        } catch (err) {
-          console.error("[Wishes] Supabase fetch error:", err);
         }
+        
+        if (res.ok) {
+          const data = await res.json();
+          setWishes(data);
+          setIsRefreshing(false);
+          return;
+        }
+      } catch (err) {
+        console.error("[Wishes] Supabase fetch error:", err);
       }
+    }
 
-      // Fallback: Retrieve wishes from localStorage
-      console.log("[Wishes] Falling back to localStorage");
-      const saved = localStorage.getItem("wedding_wishes");
-      if (saved) {
-        try {
-          setWishes(JSON.parse(saved));
-        } catch (err) {
-          console.error(err);
-          setWishes([]);
-        }
-      } else {
+    // Fallback: Retrieve wishes from localStorage
+    const saved = localStorage.getItem("wedding_wishes");
+    if (saved) {
+      try {
+        setWishes(JSON.parse(saved));
+      } catch (err) {
         setWishes([]);
       }
+    } else {
+      setWishes([]);
+    }
+    setIsRefreshing(false);
+  }, []);
+
+  useEffect(() => {
+    const mountTimer = setTimeout(() => {
+      setIsMounted(true);
+      fetchWishes();
     }, 0);
 
     return () => clearTimeout(mountTimer);
-  }, []);
+  }, [fetchWishes]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -161,8 +152,18 @@ export default function Wishes() {
         {/* Header */}
         <div className="text-center mb-16">
           <span className="font-script text-4xl text-luxury-gold block mb-2">Blessings & Love</span>
-          <h2 className="font-serif text-3xl md:text-5xl text-luxury-emerald font-bold tracking-wide">
+          <h2 className="font-serif text-3xl md:text-5xl text-luxury-emerald font-bold tracking-wide flex items-center justify-center gap-3">
             Guest Wishes
+            {isMounted && (
+              <button
+                onClick={fetchWishes}
+                disabled={isRefreshing}
+                className="p-2 ml-2 rounded-full bg-white/60 border border-luxury-gold/30 text-luxury-emerald hover:bg-white hover:text-luxury-emerald-dark hover:scale-105 transition-all shadow-sm"
+                title="Refresh Wishes"
+              >
+                <RefreshCw className={`w-5 h-5 ${isRefreshing ? 'animate-spin' : ''}`} />
+              </button>
+            )}
           </h2>
           <div className="h-[1px] w-24 bg-luxury-gold/50 mx-auto mt-4" />
         </div>
