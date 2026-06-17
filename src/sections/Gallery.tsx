@@ -47,46 +47,83 @@ export default function Gallery() {
           <div className="h-[1px] w-24 bg-luxury-gold/50 mx-auto mt-4" />
         </div>
 
-        {/* Masonry Grid */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
-          {gallery.map((photo, index) => (
+        {/* Gallery Content: Single Centered Image or Masonry Grid */}
+        {gallery.length === 1 ? (
+          <div className="flex justify-center">
             <motion.div
-              key={photo.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              onClick={() => setPhotoIndex(index)}
-              className="relative break-inside-avoid rounded-2xl overflow-hidden gold-border-thin shadow-md cursor-pointer group bg-luxury-emerald/5"
+              transition={{ duration: 1 }}
+              onClick={() => setPhotoIndex(0)}
+              className="relative max-w-[380px] w-full aspect-[9/16] rounded-[2rem] overflow-hidden border border-luxury-gold/25 p-2 bg-white/40 shadow-2xl group cursor-pointer"
             >
-              {/* Aspect Ratio Sizing Trick for Masonry */}
-              <div
-                className={`relative w-full overflow-hidden ${
-                  index % 3 === 0 ? "h-64" : index % 3 === 1 ? "h-96" : "h-80"
-                }`}
-              >
+              {/* Inner Double Borders */}
+              <div className="absolute inset-4 border border-luxury-gold/15 rounded-[1.6rem] pointer-events-none z-10" />
+              <div className="absolute inset-4.5 border border-dashed border-luxury-gold/10 rounded-[1.5rem] pointer-events-none z-10" />
+
+              <div className="relative w-full h-full rounded-[1.5rem] overflow-hidden bg-luxury-cream/20">
                 <Image
-                  src={photo.url}
-                  alt={photo.caption}
+                  src={gallery[0].url}
+                  alt={gallery[0].caption}
                   fill
-                  sizes="(max-w-640px) 100vw, (max-w-1024px) 50vw, 33vw"
+                  priority
                   className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading="lazy"
                 />
                 
                 {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-luxury-emerald-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
-                  <div className="w-10 h-10 rounded-full bg-luxury-gold/80 flex items-center justify-center text-luxury-emerald-dark transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <Maximize2 className="w-5 h-5" />
+                <div className="absolute inset-0 bg-luxury-emerald-dark/45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 z-20">
+                  <div className="w-12 h-12 rounded-full bg-luxury-gold/90 flex items-center justify-center text-luxury-emerald-dark transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    <Maximize2 className="w-6 h-6" />
                   </div>
-                  <span className="font-serif text-white text-base md:text-lg text-center mt-3 tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-                    {photo.caption}
+                  <span className="font-serif text-white text-lg md:text-xl text-center mt-3 tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                    {gallery[0].caption}
                   </span>
                 </div>
               </div>
             </motion.div>
-          ))}
-        </div>
+          </div>
+        ) : (
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+            {gallery.map((photo, index) => (
+              <motion.div
+                key={photo.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                onClick={() => setPhotoIndex(index)}
+                className="relative break-inside-avoid rounded-2xl overflow-hidden gold-border-thin shadow-md cursor-pointer group bg-luxury-emerald/5"
+              >
+                {/* Aspect Ratio Sizing Trick for Masonry */}
+                <div
+                  className={`relative w-full overflow-hidden ${
+                    index % 3 === 0 ? "h-64" : index % 3 === 1 ? "h-96" : "h-80"
+                  }`}
+                >
+                  <Image
+                    src={photo.url}
+                    alt={photo.caption}
+                    fill
+                    sizes="(max-w-640px) 100vw, (max-w-1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                  />
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-luxury-emerald-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
+                    <div className="w-10 h-10 rounded-full bg-luxury-gold/80 flex items-center justify-center text-luxury-emerald-dark transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <Maximize2 className="w-5 h-5" />
+                    </div>
+                    <span className="font-serif text-white text-base md:text-lg text-center mt-3 tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                      {photo.caption}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
 
         {/* Lightbox Slider Modal */}
         <AnimatePresence>

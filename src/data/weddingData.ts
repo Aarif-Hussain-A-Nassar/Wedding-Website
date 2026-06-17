@@ -101,33 +101,8 @@ export const weddingData: WeddingData = {
   gallery: [
     {
       id: 1,
-      url: "/images/gallery-1.png",
-      caption: "Sacred Union - The Rings",
-    },
-    {
-      id: 2,
-      url: "/images/gallery-2.png",
-      caption: "Delicate Blooms - The Bouquet",
-    },
-    {
-      id: 3,
-      url: "/images/gallery-3.png",
-      caption: "The Groom - Aarif",
-    },
-    {
-      id: 4,
-      url: "/images/gallery-4.png",
-      caption: "The Bride - Nafla",
-    },
-    {
-      id: 5,
-      url: "/images/gallery-5.png",
-      caption: "A Journey of Togetherness",
-    },
-    {
-      id: 6,
-      url: "/images/gallery-6.png",
-      caption: "Golden Moments in Love",
+      url: "/images/engagement.jpeg",
+      caption: "Our Engagement",
     },
   ],
   contacts: [
