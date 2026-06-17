@@ -25,7 +25,15 @@ export default function Footer() {
           Aarif & Nafla
         </h3>
 
-        <div className="h-[1px] w-16 bg-luxury-gold/20 my-6" />
+        {/* In Sha Allah Section */}
+        <div className="flex flex-col items-center mt-4 mb-6">
+          <div className="h-[0.5px] w-16 bg-luxury-gold/30 mb-4" />
+          <p className="font-serif italic text-2xl md:text-3xl text-luxury-gold-dark font-medium tracking-widest select-none">
+            In Sha Allah
+          </p>
+        </div>
+
+        <div className="h-[1px] w-16 bg-luxury-gold/20 my-4" />
 
         <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-luxury-emerald/50 font-semibold">
           © {new Date().getFullYear()} Aarif & Nafla. All Rights Reserved.
