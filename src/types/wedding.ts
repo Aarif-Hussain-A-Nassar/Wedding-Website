@@ -7,9 +7,16 @@ export interface Person {
   photo: string;
 }
 
+export interface Sibling {
+  name: string;
+  spouse?: string;
+  children?: string[];
+}
+
 export interface FamilyInfo {
   father: string;
   mother: string;
+  siblings?: Sibling[];
   address: string[];
 }
 

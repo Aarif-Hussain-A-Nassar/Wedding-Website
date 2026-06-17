@@ -66,6 +66,13 @@ export const weddingData: WeddingData = {
     groom: {
       father: "Nassar A",
       mother: "Kamaruneesa PM",
+      siblings: [
+        {
+          name: "Ajmal Hussain A Nassar",
+          spouse: "Jilsha Sara Varghese",
+          children: ["Liam"],
+        },
+      ],
       address: [
         "Darul Hudha",
         "Thirumalahagom P.O",
@@ -75,6 +82,11 @@ export const weddingData: WeddingData = {
     bride: {
       father: "Nazar T Y",
       mother: "Zeena Nazar",
+      siblings: [
+        {
+          name: "Nizam",
+        },
+      ],
       address: [
         "Thazhilaveetil (H)",
         "Chullickal",
