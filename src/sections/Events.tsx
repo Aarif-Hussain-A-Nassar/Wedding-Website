@@ -58,7 +58,7 @@ export default function Events() {
               <div className="relative w-full h-36 mb-6 rounded-2xl overflow-hidden border border-luxury-gold/15 bg-white/40 flex items-center justify-center p-2">
                 <div className="relative w-full h-full">
                   <Image
-                    src="/images/venue-town-hall.png"
+                    src="/images/venue-town-hall.png?v=2"
                     alt="Nehru Memorial Town Hall Sketch"
                     fill
                     sizes="(max-w-768px) 100vw, 350px"
@@ -145,7 +145,7 @@ export default function Events() {
               <div className="relative w-full h-36 mb-6 rounded-2xl overflow-hidden border border-luxury-gold/15 bg-white/40 flex items-center justify-center p-2">
                 <div className="relative w-full h-full">
                   <Image
-                    src="/images/venue-convention.png"
+                    src="/images/venue-convention.png?v=2"
                     alt="M K Convention Centre Sketch"
                     fill
                     sizes="(max-w-768px) 100vw, 350px"
