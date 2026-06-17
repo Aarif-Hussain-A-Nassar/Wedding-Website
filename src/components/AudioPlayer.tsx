@@ -128,7 +128,7 @@ export default function AudioPlayer() {
           {/* Floating Control Button */}
           <button
             onClick={togglePlay}
-            className="w-12 h-12 flex items-center justify-center rounded-full glass-card-dark text-luxury-gold hover:text-luxury-gold-light hover:scale-105 transition-all shadow-lg focus:outline-none border border-luxury-gold"
+            className="w-12 h-12 flex items-center justify-center rounded-full glass-card-dark text-white hover:text-white/80 hover:scale-105 transition-all shadow-lg focus:outline-none border border-white/50"
             aria-label="Toggle background music"
           >
             {isPlaying ? (

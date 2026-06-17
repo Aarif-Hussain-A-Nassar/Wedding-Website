@@ -84,7 +84,7 @@ export const weddingData: WeddingData = {
       mother: "Zeena Nazar",
       siblings: [
         {
-          name: "Nizam",
+          name: "Mohammed Nizam",
         },
       ],
       address: [
@@ -96,7 +96,7 @@ export const weddingData: WeddingData = {
   },
   compliments: [
     { name: "Ajmal Hussain A Nassar & Jilsha" },
-    { name: "Nizam" },
+    { name: "Mohammed Nizam" },
   ],
   gallery: [
     {
@@ -119,9 +119,15 @@ export const weddingData: WeddingData = {
       whatsappText: "Assalamu Alaikum. Regarding the wedding of Aarif & Nafla:",
     },
     {
-      label: "Nizam",
+      label: "Mohammed Nizam",
       side: "Bride's Side",
       phone: "9072415765",
+      whatsappText: "Assalamu Alaikum. Regarding the wedding of Aarif & Nafla:",
+    },
+    {
+      label: "Nazar TY",
+      side: "Bride's Side",
+      phone: "9072415760",
       whatsappText: "Assalamu Alaikum. Regarding the wedding of Aarif & Nafla:",
     },
   ],

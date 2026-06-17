@@ -68,7 +68,7 @@ export default function Contact() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6"
         >
           {contacts.map((contact, idx) => (
             <motion.div
@@ -112,7 +112,7 @@ export default function Contact() {
               </div>
 
               {/* Action Buttons */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-2.5">
                 {/* Call */}
                 <a
                   href={getTelLink(contact.phone)}
@@ -139,7 +139,7 @@ export default function Contact() {
 
         {/* Bottom note */}
         <p className="mt-10 font-serif italic text-sm text-luxury-emerald/50">
-          Contacts 1 &amp; 2 — Groom&apos;s side &nbsp;·&nbsp; Contact 3 — Bride&apos;s side
+          Contacts 1 &amp; 2 — Groom&apos;s side &nbsp;·&nbsp; Contacts 3 &amp; 4 — Bride&apos;s side
         </p>
       </div>
     </section>
