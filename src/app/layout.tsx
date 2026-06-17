@@ -32,12 +32,12 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://aarif-nafla.com'), // Base URL for resolving absolute paths
-  title: "The Wedding Invitation | Aarif & Nafla",
+  title: "Wedding Invitation | Aarif & Nafla · 19.09.2026",
   description: "Together with their families, Aarif Hussain A Nassar and Nafla Nazar request the honor of your presence to celebrate their wedding on Saturday, September 19, 2026.",
   keywords: ["Aarif Hussain", "Nafla Nazar", "Wedding Invitation", "Wedding Website", "Nehru Memorial Town Hall", "M K Convention Centre", "Islamic Wedding"],
   authors: [{ name: "Aarif & Nafla" }],
   openGraph: {
-    title: "Wedding Invitation: Aarif & Nafla",
+    title: "Wedding Invitation | Aarif & Nafla",
     description: "Celebrate the union of Aarif Hussain A Nassar & Nafla Nazar on Saturday, September 19, 2026. View ceremony details, venue location and RSVP.",
     type: "website",
     locale: "en_US",
@@ -52,12 +52,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Wedding Invitation: Aarif & Nafla",
+    title: "Wedding Invitation | Aarif & Nafla",
     description: "Celebrate the union of Aarif Hussain A Nassar & Nafla Nazar on September 19, 2026.",
     images: ["/images/gallery-1.png"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.png", type: "image/png", sizes: "512x512" },
+      { url: "/favicon.ico" },
+    ],
+    apple: "/favicon.png",
   },
 };
 
