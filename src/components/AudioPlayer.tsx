@@ -4,6 +4,25 @@ import React, { useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Helper to gradually fade in audio volume
+const fadeInAudio = (audio: HTMLAudioElement, targetVolume: number = 0.4, durationMs: number = 2500) => {
+  audio.volume = 0;
+  const interval = 50;
+  const step = targetVolume / (durationMs / interval);
+
+  const fade = setInterval(() => {
+    if (audio.paused) {
+      clearInterval(fade);
+      return;
+    }
+    if (audio.volume < targetVolume) {
+      audio.volume = Math.min(targetVolume, audio.volume + step);
+    } else {
+      clearInterval(fade);
+    }
+  }, interval);
+};
+
 export default function AudioPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -13,7 +32,7 @@ export default function AudioPlayer() {
     // Instantiate audio object
     const audio = new Audio("/audio/wedding-nasheed.mp3");
     audio.loop = true;
-    audio.volume = 0.4; // Soft background volume
+    audio.volume = 0; // Start at 0 for fade-in
     audioRef.current = audio;
 
     // Listen to open invitation event
@@ -22,6 +41,7 @@ export default function AudioPlayer() {
         .then(() => {
           setIsPlaying(true);
           setIsVisible(true);
+          fadeInAudio(audio);
         })
         .catch((err) => {
           console.warn("Audio autoplay blocked or failed:", err);
@@ -42,12 +62,16 @@ export default function AudioPlayer() {
   const togglePlay = () => {
     if (!audioRef.current) return;
 
+    const audio = audioRef.current;
     if (isPlaying) {
-      audioRef.current.pause();
+      audio.pause();
       setIsPlaying(false);
     } else {
-      audioRef.current.play()
-        .then(() => setIsPlaying(true))
+      audio.play()
+        .then(() => {
+          setIsPlaying(true);
+          fadeInAudio(audio);
+        })
         .catch((err) => console.error(err));
     }
   };
