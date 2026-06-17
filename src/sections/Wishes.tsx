@@ -152,18 +152,8 @@ export default function Wishes() {
         {/* Header */}
         <div className="text-center mb-16">
           <span className="font-script text-4xl text-luxury-gold block mb-2">Blessings & Love</span>
-          <h2 className="font-serif text-3xl md:text-5xl text-luxury-emerald font-bold tracking-wide flex items-center justify-center gap-3">
+          <h2 className="font-serif text-3xl md:text-5xl text-luxury-emerald font-bold tracking-wide">
             Guest Wishes
-            {isMounted && (
-              <button
-                onClick={fetchWishes}
-                disabled={isRefreshing}
-                className="p-2 ml-2 rounded-full bg-white/60 border border-luxury-gold/30 text-luxury-emerald hover:bg-white hover:text-luxury-emerald-dark hover:scale-105 transition-all shadow-sm"
-                title="Refresh Wishes"
-              >
-                <RefreshCw className={`w-5 h-5 ${isRefreshing ? 'animate-spin' : ''}`} />
-              </button>
-            )}
           </h2>
           <div className="h-[1px] w-24 bg-luxury-gold/50 mx-auto mt-4" />
         </div>
@@ -218,21 +208,35 @@ export default function Wishes() {
                 />
               </div>
 
-              {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full py-3.5 px-6 bg-gold-gradient hover:brightness-105 disabled:brightness-95 text-luxury-emerald-dark font-sans text-xs tracking-widest uppercase font-bold rounded-xl flex items-center justify-center gap-2 shadow-md cursor-pointer transition-all duration-300"
-              >
-                {isSubmitting ? (
-                  <div className="w-5 h-5 border-2 border-luxury-emerald-dark border-t-transparent rounded-full animate-spin" />
-                ) : (
-                  <>
-                    <Send className="w-3.5 h-3.5" />
-                    Submit Wish
-                  </>
+              {/* Buttons */}
+              <div className="flex flex-col gap-3">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-3.5 px-6 bg-gold-gradient hover:brightness-105 disabled:brightness-95 text-luxury-emerald-dark font-sans text-xs tracking-widest uppercase font-bold rounded-xl flex items-center justify-center gap-2 shadow-md cursor-pointer transition-all duration-300"
+                >
+                  {isSubmitting ? (
+                    <div className="w-5 h-5 border-2 border-luxury-emerald-dark border-t-transparent rounded-full animate-spin" />
+                  ) : (
+                    <>
+                      <Send className="w-3.5 h-3.5" />
+                      Submit Wish
+                    </>
+                  )}
+                </button>
+
+                {isMounted && (
+                  <button
+                    type="button"
+                    onClick={fetchWishes}
+                    disabled={isRefreshing}
+                    className="w-full py-2.5 px-6 bg-white/50 border border-luxury-gold/30 hover:bg-white text-luxury-emerald-dark font-sans text-xs tracking-widest uppercase font-bold rounded-xl flex items-center justify-center gap-2 shadow-sm cursor-pointer transition-all duration-300"
+                  >
+                    <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin' : ''}`} />
+                    {isRefreshing ? 'Refreshing...' : 'Refresh Wishes'}
+                  </button>
                 )}
-              </button>
+              </div>
             </form>
           </motion.div>
 
