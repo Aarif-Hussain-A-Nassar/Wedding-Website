@@ -29,6 +29,9 @@ export default function Home() {
       {/* Welcome & Cinematic Cover Overlay */}
       <OpeningScreen onOpen={() => setIsOpen(true)} />
 
+      {/* AudioPlayer is mounted from the start to listen for the play event */}
+      <AudioPlayer />
+
       {/* Main Website - Mounts and reveals when "Open Invitation" is clicked */}
       <AnimatePresence>
         {isOpen && (
@@ -40,7 +43,6 @@ export default function Home() {
           >
             {/* Global Progress & Interactive Controls */}
             <ScrollProgress />
-            <AudioPlayer />
             <BackToTop />
 
             {/* Canvas Sparkles Background */}

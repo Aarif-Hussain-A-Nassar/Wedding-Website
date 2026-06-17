@@ -11,7 +11,7 @@ export default function AudioPlayer() {
 
   useEffect(() => {
     // Instantiate audio object
-    const audio = new Audio("https://assets.mixkit.co/music/preview/mixkit-delicate-piano-461.mp3");
+    const audio = new Audio("/audio/wedding-nasheed.mp3");
     audio.loop = true;
     audio.volume = 0.4; // Soft background volume
     audioRef.current = audio;
