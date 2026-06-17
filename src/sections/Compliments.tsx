@@ -46,7 +46,7 @@ export default function Compliments() {
               whileHover={{ scale: 1.03 }}
               className="px-8 py-5 rounded-2xl glass-card border border-luxury-gold/25 shadow-md flex items-center justify-center min-w-[200px]"
             >
-              <p className="font-serif text-lg md:text-xl font-medium text-luxury-emerald-dark">
+              <p className="font-serif text-lg md:text-xl font-medium text-luxury-emerald-dark whitespace-pre-line leading-relaxed">
                 {item.name}
               </p>
             </motion.div>

@@ -67,11 +67,9 @@ export const weddingData: WeddingData = {
       father: "Nassar A",
       mother: "Kamaruneesa PM",
       siblings: [
-        {
-          name: "Ajmal Hussain A Nassar",
-          spouse: "Jilsha Sara",
-          children: ["Liam"],
-        },
+        { name: "Ajmal Hussain A Nassar" },
+        { name: "Jilsha Sara" },
+        { name: "Liam" },
       ],
       address: [
         "Darul Hudha",
@@ -95,8 +93,7 @@ export const weddingData: WeddingData = {
     },
   },
   compliments: [
-    { name: "Ajmal Hussain A Nassar & Jilsha" },
-    { name: "Mohammed Nizam" },
+    { name: "Ajmal Hussain A Nassar\nJilsha Sara Varghese\nMohammed Nizam\nLiam Zayn" },
   ],
   gallery: [
     {

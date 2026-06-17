@@ -49,43 +49,18 @@ export default function Family() {
                 </h3>
               </div>
 
-              {/* Parents details */}
+              {/* Family members details */}
               <div className="mb-6 space-y-2.5">
-                <div>
-                  <span className="font-sans text-[11px] tracking-wider text-luxury-gold-dark uppercase font-semibold block">Father</span>
-                  <span className="font-sans text-base text-luxury-emerald font-medium">{groom.father}</span>
-                </div>
-                <div>
-                  <span className="font-sans text-[11px] tracking-wider text-luxury-gold-dark uppercase font-semibold block">Mother</span>
-                  <span className="font-sans text-base text-luxury-emerald font-medium">{groom.mother}</span>
-                </div>
+                <span className="font-sans text-base text-luxury-emerald font-medium block">{groom.father}</span>
+                <span className="font-sans text-base text-luxury-emerald font-medium block">{groom.mother}</span>
+                {groom.siblings?.map((sibling, sIdx) => (
+                  <div key={sIdx} className="space-y-1">
+                    <p className="font-sans text-base text-luxury-emerald font-medium block">
+                      {sibling.name}
+                    </p>
+                  </div>
+                ))}
               </div>
-
-              {/* Siblings details */}
-              {groom.siblings && groom.siblings.length > 0 && (
-                <div className="mt-5 pt-4 border-t border-luxury-gold/10 space-y-3">
-                  <span className="font-sans text-[11px] tracking-wider text-luxury-gold-dark uppercase font-semibold block">Sibling</span>
-                  {groom.siblings.map((sibling, sIdx) => (
-                    <div key={sIdx} className="space-y-1">
-                      <p className="font-sans text-sm text-luxury-emerald font-semibold leading-normal">
-                        {sibling.name}
-                      </p>
-                      {sibling.spouse && (
-                        <p className="font-sans text-xs text-luxury-emerald/75 pl-3 leading-relaxed">
-                          <span className="italic text-luxury-gold-dark mr-1.5">Wife:</span>
-                          {sibling.spouse}
-                        </p>
-                      )}
-                      {sibling.children && sibling.children.length > 0 && (
-                        <p className="font-sans text-xs text-luxury-emerald/75 pl-3 leading-relaxed">
-                          <span className="italic text-luxury-gold-dark mr-1.5">Son:</span>
-                          {sibling.children.join(", ")}
-                        </p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
 
             {/* Address box */}
@@ -121,43 +96,18 @@ export default function Family() {
                 </h3>
               </div>
 
-              {/* Parents details */}
+              {/* Family members details */}
               <div className="mb-6 space-y-2.5">
-                <div>
-                  <span className="font-sans text-[11px] tracking-wider text-luxury-gold-dark uppercase font-semibold block">Father</span>
-                  <span className="font-sans text-base text-luxury-emerald font-medium">{bride.father}</span>
-                </div>
-                <div>
-                  <span className="font-sans text-[11px] tracking-wider text-luxury-gold-dark uppercase font-semibold block">Mother</span>
-                  <span className="font-sans text-base text-luxury-emerald font-medium">{bride.mother}</span>
-                </div>
+                <span className="font-sans text-base text-luxury-emerald font-medium block">{bride.father}</span>
+                <span className="font-sans text-base text-luxury-emerald font-medium block">{bride.mother}</span>
+                {bride.siblings?.map((sibling, sIdx) => (
+                  <div key={sIdx} className="space-y-1">
+                    <p className="font-sans text-base text-luxury-emerald font-medium block">
+                      {sibling.name}
+                    </p>
+                  </div>
+                ))}
               </div>
-
-              {/* Siblings details */}
-              {bride.siblings && bride.siblings.length > 0 && (
-                <div className="mt-5 pt-4 border-t border-luxury-gold/10 space-y-3">
-                  <span className="font-sans text-[11px] tracking-wider text-luxury-gold-dark uppercase font-semibold block">Sibling</span>
-                  {bride.siblings.map((sibling, sIdx) => (
-                    <div key={sIdx} className="space-y-1">
-                      <p className="font-sans text-sm text-luxury-emerald font-semibold leading-normal">
-                        {sibling.name}
-                      </p>
-                      {sibling.spouse && (
-                        <p className="font-sans text-xs text-luxury-emerald/75 pl-3 leading-relaxed">
-                          <span className="italic text-luxury-gold-dark mr-1.5">Wife:</span>
-                          {sibling.spouse}
-                        </p>
-                      )}
-                      {sibling.children && sibling.children.length > 0 && (
-                        <p className="font-sans text-xs text-luxury-emerald/75 pl-3 leading-relaxed">
-                          <span className="italic text-luxury-gold-dark mr-1.5">Son:</span>
-                          {sibling.children.join(", ")}
-                        </p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
 
             {/* Address box */}
