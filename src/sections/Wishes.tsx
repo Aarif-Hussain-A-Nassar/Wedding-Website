@@ -31,25 +31,50 @@ export default function Wishes() {
       const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
       const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
+      console.log("[Wishes] Supabase URL:", supabaseUrl ? "configured" : "MISSING");
+      console.log("[Wishes] Supabase Key:", supabaseKey ? `configured (starts with: ${supabaseKey.substring(0, 10)}...)` : "MISSING");
+
       if (supabaseUrl && supabaseKey) {
         try {
-          const res = await fetch(`${supabaseUrl}/rest/v1/wishes?select=*&order=created_at.desc`, {
+          // Try ordering by created_at first, fall back to id if that fails
+          let res = await fetch(`${supabaseUrl}/rest/v1/wishes?select=*&order=created_at.desc`, {
             headers: {
               'apikey': supabaseKey,
               'Authorization': `Bearer ${supabaseKey}`
             }
           });
+          
+          // If created_at column doesn't exist, try ordering by id
+          if (!res.ok) {
+            console.warn("[Wishes] Fetch with created_at ordering failed (status:", res.status, "), retrying with id ordering...");
+            const errorBody = await res.text();
+            console.warn("[Wishes] Error response:", errorBody);
+            
+            res = await fetch(`${supabaseUrl}/rest/v1/wishes?select=*&order=id.desc`, {
+              headers: {
+                'apikey': supabaseKey,
+                'Authorization': `Bearer ${supabaseKey}`
+              }
+            });
+          }
+          
           if (res.ok) {
             const data = await res.json();
+            console.log("[Wishes] Loaded", data.length, "wishes from Supabase");
             setWishes(data);
             return;
+          } else {
+            const errorBody = await res.text();
+            console.error("[Wishes] Supabase fetch failed. Status:", res.status, "Body:", errorBody);
+            console.error("[Wishes] This likely means your Supabase anon key is invalid. It should be a JWT token starting with 'eyJ...'");
           }
         } catch (err) {
-          console.error("Supabase fetch error:", err);
+          console.error("[Wishes] Supabase fetch error:", err);
         }
       }
 
       // Fallback: Retrieve wishes from localStorage
+      console.log("[Wishes] Falling back to localStorage");
       const saved = localStorage.getItem("wedding_wishes");
       if (saved) {
         try {
