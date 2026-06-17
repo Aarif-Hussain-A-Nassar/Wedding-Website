@@ -41,6 +41,7 @@ export interface GalleryItem {
 
 export interface ContactPerson {
   label: string;
+  side?: string;
   phone: string;
   whatsappText: string;
 }
