@@ -115,10 +115,10 @@ export default function Hero() {
           className="mb-6 flex flex-col items-center gap-1.5"
         >
           <div className="font-serif text-2xl md:text-3xl text-luxury-gold-dark tracking-wider select-none font-medium" >
-            بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ
+            السَّلَامُ عَلَيْكُمْ
           </div>
           <p className="font-sans text-[9px] md:text-[10px] tracking-[0.25em] uppercase text-luxury-gold-dark/80 font-semibold leading-relaxed">
-            In the Name of Allah, The Most Gracious, The Most Merciful
+            Peace be upon you
           </p>
         </motion.div>
  

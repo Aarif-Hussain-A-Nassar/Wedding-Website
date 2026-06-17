@@ -76,7 +76,7 @@ export default function OpeningScreen({ onOpen }: OpeningScreenProps) {
                 transition={{ duration: 1, delay: 0.2 }}
                 className="font-serif text-2xl md:text-3xl text-luxury-gold-dark tracking-wider select-none font-medium"
               >
-                بِسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ
+                السَّلَامُ عَلَيْكُمْ
               </motion.div>
 
               {/* Simple elegant label */}
