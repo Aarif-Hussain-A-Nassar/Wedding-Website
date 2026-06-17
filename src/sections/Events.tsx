@@ -72,11 +72,11 @@ export default function Events() {
               <div className="relative w-full h-48 mb-8 rounded-[120px_120px_20px_20px] overflow-hidden border border-luxury-gold/25 bg-white/40 p-1.5 shadow-md">
                 <div className="relative w-full h-full rounded-[112px_112px_15px_15px] overflow-hidden bg-luxury-cream/35 flex items-center justify-center">
                   <Image
-                    src="/images/venue-town-hall-v2.png"
+                    src="/images/venue-town-hall-colored.png"
                     alt="Nehru Memorial Town Hall Sketch"
                     fill
                     sizes="(max-w-768px) 100vw, 380px"
-                    className="object-contain mix-blend-multiply opacity-85 group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="object-contain scale-[1.5] mix-blend-multiply opacity-85 group-hover:scale-[1.6] transition-transform duration-700 ease-out"
                     style={{ filter: "contrast(1.15) brightness(1.08)" }}
                   />
                 </div>
@@ -180,11 +180,11 @@ export default function Events() {
               <div className="relative w-full h-48 mb-8 rounded-[120px_120px_20px_20px] overflow-hidden border border-luxury-gold/25 bg-white/40 p-1.5 shadow-md">
                 <div className="relative w-full h-full rounded-[112px_112px_15px_15px] overflow-hidden bg-luxury-cream/35 flex items-center justify-center">
                   <Image
-                    src="/images/venue-convention-v2.png"
+                    src="/images/venue-convention-colored.png"
                     alt="M K Convention Centre Sketch"
                     fill
                     sizes="(max-w-768px) 100vw, 380px"
-                    className="object-contain mix-blend-multiply opacity-85 group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="object-contain scale-[1.5] mix-blend-multiply opacity-85 group-hover:scale-[1.6] transition-transform duration-700 ease-out"
                     style={{ filter: "contrast(1.15) brightness(1.08)" }}
                   />
                 </div>
