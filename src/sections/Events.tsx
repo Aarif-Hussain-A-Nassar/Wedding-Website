@@ -51,7 +51,7 @@ export default function Events() {
             custom={0.1}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px" }}
             variants={cardVariants}
             className="relative flex flex-col justify-between p-8 md:p-10 rounded-[2.5rem] glass-card border border-luxury-gold/25 hover:border-luxury-gold/50 shadow-2xl hover:shadow-luxury-gold/5 transition-all duration-500 hover:-translate-y-2 group overflow-hidden"
           >
@@ -159,7 +159,7 @@ export default function Events() {
             custom={0.3}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px" }}
             variants={cardVariants}
             className="relative flex flex-col justify-between p-8 md:p-10 rounded-[2.5rem] glass-card border border-luxury-gold/25 hover:border-luxury-gold/50 shadow-2xl hover:shadow-luxury-gold/5 transition-all duration-500 hover:-translate-y-2 group overflow-hidden"
           >

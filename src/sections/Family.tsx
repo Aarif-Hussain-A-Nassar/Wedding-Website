@@ -35,7 +35,7 @@ export default function Family() {
             custom={0.1}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px" }}
             variants={cardVariants}
             className="p-8 rounded-3xl glass-card border border-luxury-gold/20 shadow-md flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300"
           >
@@ -107,7 +107,7 @@ export default function Family() {
             custom={0.3}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px" }}
             variants={cardVariants}
             className="p-8 rounded-3xl glass-card border border-luxury-gold/20 shadow-md flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300"
           >

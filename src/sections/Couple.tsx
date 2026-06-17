@@ -46,7 +46,7 @@ export default function Couple() {
             custom={0.1}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px" }}
             variants={cardVariants}
             className="flex flex-col items-center text-center p-4 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl glass-card border border-luxury-gold/25 shadow-lg group hover:shadow-xl transition-all duration-300"
           >
@@ -89,7 +89,7 @@ export default function Couple() {
             custom={0.3}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true, margin: "0px" }}
             variants={cardVariants}
             className="flex flex-col items-center text-center p-4 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl glass-card border border-luxury-gold/25 shadow-lg group hover:shadow-xl transition-all duration-300"
           >

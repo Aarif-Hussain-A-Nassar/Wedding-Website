@@ -53,7 +53,7 @@ export default function Gallery() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 1 }}
               onClick={() => setPhotoIndex(0)}
               className="relative max-w-[380px] w-full aspect-[9/16] rounded-[2rem] overflow-hidden border border-luxury-gold/25 p-2 bg-white/40 shadow-2xl group cursor-pointer"
@@ -90,7 +90,7 @@ export default function Gallery() {
                 key={photo.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
+                viewport={{ once: true, margin: "0px" }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 onClick={() => setPhotoIndex(index)}
                 className="relative break-inside-avoid rounded-2xl overflow-hidden gold-border-thin shadow-md cursor-pointer group bg-luxury-emerald/5"
