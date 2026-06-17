@@ -10,102 +10,135 @@ export default function Events() {
   const { ceremony, reception } = weddingData.events;
 
   const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0, y: 50 },
     visible: (customDelay: number) => ({
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, delay: customDelay, ease: [0.16, 1, 0.3, 1] as const },
+      transition: { duration: 1, delay: customDelay, ease: [0.16, 1, 0.3, 1] as const },
     }),
   };
 
   return (
-    <section id="events" className="relative py-24 px-4 bg-luxury-beige/45 overflow-hidden">
-      {/* Soft background texture details */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(212,175,55,0.08),transparent_60%)] pointer-events-none" />
+    <section id="events" className="relative py-28 px-4 bg-luxury-beige/40 overflow-hidden">
+      {/* Background radial soft light flares */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-luxury-gold/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-luxury-gold/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-5xl mx-auto relative z-10">
-        <div className="text-center mb-16">
+        {/* Header Section */}
+        <div className="text-center mb-20">
           <span className="font-script text-4xl text-luxury-gold block mb-2">Save the Timings</span>
           <h2 className="font-serif text-3xl md:text-5xl text-luxury-emerald font-bold tracking-wide">
-            Wedding Events
+            Wedding Celebrations
           </h2>
-          <div className="h-[1px] w-24 bg-luxury-gold/50 mx-auto mt-4" />
+          {/* Rub el Hizb (Islamic Star) Divider */}
+          <div className="flex items-center justify-center gap-3 mt-4 text-luxury-gold/60">
+            <div className="h-[0.5px] w-16 bg-luxury-gold/30" />
+            <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current stroke-[1.5] shrink-0">
+              <rect x="5" y="5" width="14" height="14" transform="rotate(0 12 12)" />
+              <rect x="5" y="5" width="14" height="14" transform="rotate(45 12 12)" />
+              <circle cx="12" cy="12" r="2" fill="currentColor" />
+            </svg>
+            <div className="h-[0.5px] w-16 bg-luxury-gold/30" />
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {/* Ceremony Card */}
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
+          
+          {/* Nikkah Card */}
           <motion.div
             custom={0.1}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={cardVariants}
-            className="flex flex-col justify-between p-8 rounded-3xl glass-card border border-luxury-gold/30 hover:border-luxury-gold/50 shadow-xl group transition-all duration-300"
+            className="relative flex flex-col justify-between p-8 md:p-10 rounded-[2.5rem] glass-card border border-luxury-gold/25 hover:border-luxury-gold/50 shadow-2xl hover:shadow-luxury-gold/5 transition-all duration-500 hover:-translate-y-2 group overflow-hidden"
           >
-            <div>
-              <div className="flex justify-between items-start mb-6">
-                <span className="font-serif italic text-lg text-luxury-gold-dark font-medium">The Nikkah</span>
-                <div className="w-10 h-10 rounded-full bg-luxury-gold/20 flex items-center justify-center text-luxury-gold-dark border border-luxury-gold/25">
-                  <Calendar className="w-5 h-5" />
-                </div>
+            {/* Elegant Inner Double Border */}
+            <div className="absolute inset-2 border border-luxury-gold/15 rounded-[2rem] pointer-events-none" />
+            <div className="absolute inset-2.5 border border-dashed border-luxury-gold/10 rounded-[1.9rem] pointer-events-none" />
+
+            <div className="relative z-10">
+              {/* Card Title Label */}
+              <div className="text-center mb-6">
+                <span className="font-script text-3xl text-luxury-gold block">The Nikkah</span>
+                <h3 className="font-serif text-2xl md:text-3xl font-bold text-luxury-emerald-dark tracking-wide mt-1">
+                  {ceremony.title}
+                </h3>
               </div>
 
-              <h3 className="font-serif text-2xl md:text-3xl font-semibold text-luxury-emerald tracking-wide mb-6">
-                {ceremony.title}
-              </h3>
-
-              {/* Venue Sketch Illustration */}
-              <div className="relative w-full h-36 mb-6 rounded-2xl overflow-hidden border border-luxury-gold/15 bg-white/40 flex items-center justify-center p-2">
-                <div className="relative w-full h-full">
+              {/* Islamic Arched Frame for Venue Sketch */}
+              <div className="relative w-full h-48 mb-8 rounded-[120px_120px_20px_20px] overflow-hidden border border-luxury-gold/25 bg-white/40 p-1.5 shadow-md">
+                <div className="relative w-full h-full rounded-[112px_112px_15px_15px] overflow-hidden bg-luxury-cream/35 flex items-center justify-center">
                   <Image
                     src="/images/venue-town-hall-v2.png"
                     alt="Nehru Memorial Town Hall Sketch"
                     fill
-                    sizes="(max-w-768px) 100vw, 350px"
-                    className="object-contain mix-blend-multiply opacity-80 hover:scale-103 transition-all duration-500"
+                    sizes="(max-w-768px) 100vw, 380px"
+                    className="object-contain mix-blend-multiply opacity-85 group-hover:scale-105 transition-transform duration-700 ease-out"
                     style={{ filter: "contrast(1.15) brightness(1.08)" }}
                   />
                 </div>
               </div>
 
+              {/* Rub el Hizb Separator */}
+              <div className="flex items-center justify-center gap-3 mb-6 text-luxury-gold/40">
+                <div className="h-[0.5px] w-12 bg-luxury-gold/20" />
+                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-none stroke-current stroke-[1.5]">
+                  <rect x="5" y="5" width="14" height="14" transform="rotate(0 12 12)" />
+                  <rect x="5" y="5" width="14" height="14" transform="rotate(45 12 12)" />
+                </svg>
+                <div className="h-[0.5px] w-12 bg-luxury-gold/20" />
+              </div>
+
               {/* Details List */}
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start gap-4">
-                  <Calendar className="w-5 h-5 text-luxury-gold-dark shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-sans text-xs tracking-wider text-luxury-gold-dark uppercase font-semibold">Date</p>
-                    <p className="font-sans text-sm md:text-base text-luxury-emerald/90">{ceremony.date}</p>
+              <div className="space-y-4 mb-6">
+                {/* Date Row */}
+                <div className="flex items-center gap-4 p-3.5 rounded-2xl bg-white/30 border border-luxury-gold/10 hover:bg-white/50 hover:border-luxury-gold/25 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold-dark shrink-0">
+                    <Calendar className="w-5 h-5" />
+                  </div>
+                  <div className="text-left">
+                    <span className="font-sans text-[10px] tracking-widest text-luxury-gold-dark uppercase font-bold block">Date</span>
+                    <span className="font-sans text-sm md:text-base text-luxury-emerald-dark font-semibold">{ceremony.date}</span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <Clock className="w-5 h-5 text-luxury-gold-dark shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-sans text-xs tracking-wider text-luxury-gold-dark uppercase font-semibold">Time</p>
-                    <p className="font-sans text-sm md:text-base text-luxury-emerald/90">{ceremony.time}</p>
+                {/* Time Row */}
+                <div className="flex items-center gap-4 p-3.5 rounded-2xl bg-white/30 border border-luxury-gold/10 hover:bg-white/50 hover:border-luxury-gold/25 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold-dark shrink-0">
+                    <Clock className="w-5 h-5" />
+                  </div>
+                  <div className="text-left">
+                    <span className="font-sans text-[10px] tracking-widest text-luxury-gold-dark uppercase font-bold block">Time</span>
+                    <span className="font-sans text-sm md:text-base text-luxury-emerald-dark font-semibold">{ceremony.time}</span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <MapPin className="w-5 h-5 text-luxury-gold-dark shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-sans text-xs tracking-wider text-luxury-gold-dark uppercase font-semibold">Venue</p>
-                    <p className="font-sans text-sm md:text-base text-luxury-emerald/90 leading-relaxed">{ceremony.venue}</p>
+                {/* Venue Row */}
+                <div className="flex items-center gap-4 p-3.5 rounded-2xl bg-white/30 border border-luxury-gold/10 hover:bg-white/50 hover:border-luxury-gold/25 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold-dark shrink-0">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div className="text-left">
+                    <span className="font-sans text-[10px] tracking-widest text-luxury-gold-dark uppercase font-bold block">Venue</span>
+                    <span className="font-sans text-xs md:text-sm text-luxury-emerald-dark font-semibold leading-relaxed block">{ceremony.venue}</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Buttons */}
-            <div className="grid grid-cols-2 gap-3 mt-6 pt-6 border-t border-luxury-gold/15">
+            <div className="relative z-10 grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-luxury-gold/15">
               {ceremony.calendarLink && (
                 <a
                   href={ceremony.calendarLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 py-2.5 px-4 bg-transparent border border-luxury-gold/40 hover:border-luxury-gold text-luxury-emerald hover:text-luxury-gold-dark text-xs tracking-wider uppercase rounded-full transition-all duration-300 font-sans cursor-pointer font-semibold"
+                  className="flex items-center justify-center gap-2 py-3 px-4 bg-transparent border border-luxury-gold/40 hover:border-luxury-gold text-luxury-emerald-dark hover:bg-luxury-gold/10 text-xs tracking-widest uppercase rounded-full transition-all duration-300 font-sans cursor-pointer font-bold text-center"
                 >
-                  <CalendarPlus className="w-3.5 h-3.5" />
+                  <CalendarPlus className="w-4 h-4 text-luxury-gold-dark shrink-0" />
                   Calendar
                 </a>
               )}
@@ -113,9 +146,9 @@ export default function Events() {
                 href={ceremony.mapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 py-2.5 px-4 bg-gold-gradient hover:brightness-105 text-luxury-emerald-dark text-xs tracking-wider uppercase rounded-full transition-all duration-300 font-sans cursor-pointer font-bold shadow-md"
+                className="flex items-center justify-center gap-2 py-3 px-4 bg-gold-gradient hover:brightness-105 text-luxury-emerald-dark text-xs tracking-widest uppercase rounded-full transition-all duration-300 font-sans cursor-pointer font-bold text-center shadow-md hover:shadow-lg hover:shadow-luxury-gold/10"
               >
-                <Map className="w-3.5 h-3.5" />
+                <Map className="w-4 h-4 shrink-0" />
                 View Maps
               </a>
             </div>
@@ -128,72 +161,92 @@ export default function Events() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={cardVariants}
-            className="flex flex-col justify-between p-8 rounded-3xl glass-card border border-luxury-gold/30 hover:border-luxury-gold/50 shadow-xl group transition-all duration-300"
+            className="relative flex flex-col justify-between p-8 md:p-10 rounded-[2.5rem] glass-card border border-luxury-gold/25 hover:border-luxury-gold/50 shadow-2xl hover:shadow-luxury-gold/5 transition-all duration-500 hover:-translate-y-2 group overflow-hidden"
           >
-            <div>
-              <div className="flex justify-between items-start mb-6">
-                <span className="font-serif italic text-lg text-luxury-gold-dark font-medium">The Feast</span>
-                <div className="w-10 h-10 rounded-full bg-luxury-gold/20 flex items-center justify-center text-luxury-gold-dark border border-luxury-gold/25">
-                  <Calendar className="w-5 h-5" />
-                </div>
+            {/* Elegant Inner Double Border */}
+            <div className="absolute inset-2 border border-luxury-gold/15 rounded-[2rem] pointer-events-none" />
+            <div className="absolute inset-2.5 border border-dashed border-luxury-gold/10 rounded-[1.9rem] pointer-events-none" />
+
+            <div className="relative z-10">
+              {/* Card Title Label */}
+              <div className="text-center mb-6">
+                <span className="font-script text-3xl text-luxury-gold block">The Feast</span>
+                <h3 className="font-serif text-2xl md:text-3xl font-bold text-luxury-emerald-dark tracking-wide mt-1">
+                  {reception.title}
+                </h3>
               </div>
 
-              <h3 className="font-serif text-2xl md:text-3xl font-semibold text-luxury-emerald tracking-wide mb-6">
-                {reception.title}
-              </h3>
-
-              {/* Venue Sketch Illustration */}
-              <div className="relative w-full h-36 mb-6 rounded-2xl overflow-hidden border border-luxury-gold/15 bg-white/40 flex items-center justify-center p-2">
-                <div className="relative w-full h-full">
+              {/* Islamic Arched Frame for Venue Sketch */}
+              <div className="relative w-full h-48 mb-8 rounded-[120px_120px_20px_20px] overflow-hidden border border-luxury-gold/25 bg-white/40 p-1.5 shadow-md">
+                <div className="relative w-full h-full rounded-[112px_112px_15px_15px] overflow-hidden bg-luxury-cream/35 flex items-center justify-center">
                   <Image
                     src="/images/venue-convention-v2.png"
                     alt="M K Convention Centre Sketch"
                     fill
-                    sizes="(max-w-768px) 100vw, 350px"
-                    className="object-contain mix-blend-multiply opacity-80 hover:scale-103 transition-all duration-500"
+                    sizes="(max-w-768px) 100vw, 380px"
+                    className="object-contain mix-blend-multiply opacity-85 group-hover:scale-105 transition-transform duration-700 ease-out"
                     style={{ filter: "contrast(1.15) brightness(1.08)" }}
                   />
                 </div>
               </div>
 
+              {/* Rub el Hizb Separator */}
+              <div className="flex items-center justify-center gap-3 mb-6 text-luxury-gold/40">
+                <div className="h-[0.5px] w-12 bg-luxury-gold/20" />
+                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-none stroke-current stroke-[1.5]">
+                  <rect x="5" y="5" width="14" height="14" transform="rotate(0 12 12)" />
+                  <rect x="5" y="5" width="14" height="14" transform="rotate(45 12 12)" />
+                </svg>
+                <div className="h-[0.5px] w-12 bg-luxury-gold/20" />
+              </div>
+
               {/* Details List */}
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start gap-4">
-                  <Calendar className="w-5 h-5 text-luxury-gold-dark shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-sans text-xs tracking-wider text-luxury-gold-dark uppercase font-semibold">Date</p>
-                    <p className="font-sans text-sm md:text-base text-luxury-emerald/90">{reception.date}</p>
+              <div className="space-y-4 mb-6">
+                {/* Date Row */}
+                <div className="flex items-center gap-4 p-3.5 rounded-2xl bg-white/30 border border-luxury-gold/10 hover:bg-white/50 hover:border-luxury-gold/25 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold-dark shrink-0">
+                    <Calendar className="w-5 h-5" />
+                  </div>
+                  <div className="text-left">
+                    <span className="font-sans text-[10px] tracking-widest text-luxury-gold-dark uppercase font-bold block">Date</span>
+                    <span className="font-sans text-sm md:text-base text-luxury-emerald-dark font-semibold">{reception.date}</span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <Clock className="w-5 h-5 text-luxury-gold-dark shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-sans text-xs tracking-wider text-luxury-gold-dark uppercase font-semibold">Time</p>
-                    <p className="font-sans text-sm md:text-base text-luxury-emerald/90">{reception.time}</p>
+                {/* Time Row */}
+                <div className="flex items-center gap-4 p-3.5 rounded-2xl bg-white/30 border border-luxury-gold/10 hover:bg-white/50 hover:border-luxury-gold/25 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold-dark shrink-0">
+                    <Clock className="w-5 h-5" />
+                  </div>
+                  <div className="text-left">
+                    <span className="font-sans text-[10px] tracking-widest text-luxury-gold-dark uppercase font-bold block">Time</span>
+                    <span className="font-sans text-sm md:text-base text-luxury-emerald-dark font-semibold">{reception.time}</span>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <MapPin className="w-5 h-5 text-luxury-gold-dark shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-sans text-xs tracking-wider text-luxury-gold-dark uppercase font-semibold">Venue</p>
-                    <p className="font-sans text-sm md:text-base text-luxury-emerald/90 leading-relaxed">{reception.venue}</p>
+                {/* Venue Row */}
+                <div className="flex items-center gap-4 p-3.5 rounded-2xl bg-white/30 border border-luxury-gold/10 hover:bg-white/50 hover:border-luxury-gold/25 transition-all duration-300">
+                  <div className="w-10 h-10 rounded-xl bg-luxury-gold/10 flex items-center justify-center text-luxury-gold-dark shrink-0">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div className="text-left">
+                    <span className="font-sans text-[10px] tracking-widest text-luxury-gold-dark uppercase font-bold block">Venue</span>
+                    <span className="font-sans text-xs md:text-sm text-luxury-emerald-dark font-semibold leading-relaxed block">{reception.venue}</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Buttons */}
-            <div className="grid grid-cols-2 gap-3 mt-6 pt-6 border-t border-luxury-gold/15">
+            <div className="relative z-10 grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-luxury-gold/15">
               {reception.calendarLink && (
                 <a
                   href={reception.calendarLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 py-2.5 px-4 bg-transparent border border-luxury-gold/40 hover:border-luxury-gold text-luxury-emerald hover:text-luxury-gold-dark text-xs tracking-wider uppercase rounded-full transition-all duration-300 font-sans cursor-pointer font-semibold"
+                  className="flex items-center justify-center gap-2 py-3 px-4 bg-transparent border border-luxury-gold/40 hover:border-luxury-gold text-luxury-emerald-dark hover:bg-luxury-gold/10 text-xs tracking-widest uppercase rounded-full transition-all duration-300 font-sans cursor-pointer font-bold text-center"
                 >
-                  <CalendarPlus className="w-3.5 h-3.5" />
+                  <CalendarPlus className="w-4 h-4 text-luxury-gold-dark shrink-0" />
                   Calendar
                 </a>
               )}
@@ -201,13 +254,14 @@ export default function Events() {
                 href={reception.mapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 py-2.5 px-4 bg-gold-gradient hover:brightness-105 text-luxury-emerald-dark text-xs tracking-wider uppercase rounded-full transition-all duration-300 font-sans cursor-pointer font-bold shadow-md"
+                className="flex items-center justify-center gap-2 py-3 px-4 bg-gold-gradient hover:brightness-105 text-luxury-emerald-dark text-xs tracking-widest uppercase rounded-full transition-all duration-300 font-sans cursor-pointer font-bold text-center shadow-md hover:shadow-lg hover:shadow-luxury-gold/10"
               >
-                <Map className="w-3.5 h-3.5" />
+                <Map className="w-4 h-4 shrink-0" />
                 View Maps
               </a>
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>
