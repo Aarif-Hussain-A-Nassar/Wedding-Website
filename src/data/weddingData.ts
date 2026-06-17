@@ -147,24 +147,5 @@ export const weddingData: WeddingData = {
       whatsappText: "Assalamu Alaikum. Regarding the wedding of Aarif & Nafla:",
     },
   ],
-  initialWishes: [
-    {
-      id: "wish-1",
-      name: "Faisal Rahman",
-      message: "May Almighty Allah shower his blessings upon this wonderful couple. Wishing you a lifetime of joy, harmony, and eternal love. Mubarak!",
-      date: "2026-06-17",
-    },
-    {
-      id: "wish-2",
-      name: "Sarah & Sameer",
-      message: "Warmest congratulations, Aarif and Nafla! So thrilled to celebrate this beautiful day with you both. May your journey together be blessed.",
-      date: "2026-06-17",
-    },
-    {
-      id: "wish-3",
-      name: "Dr. Anis Ahmed",
-      message: "May your marriage be as beautiful as the bond you share, filled with patience, understanding, and love. Congratulations to both families!",
-      date: "2026-06-17",
-    },
-  ],
+  initialWishes: [],
 };

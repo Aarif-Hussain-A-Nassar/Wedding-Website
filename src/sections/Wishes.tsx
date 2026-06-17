@@ -14,29 +14,59 @@ export default function Wishes() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
+  // Helper to trigger theme-colored confetti
+  const triggerConfetti = () => {
+    confetti({
+      particleCount: 80,
+      spread: 60,
+      origin: { y: 0.7 },
+      colors: ["#d4af37", "#4a3c31", "#f3e5ab", "#ffffff"],
+    });
+  };
+
   useEffect(() => {
-    const mountTimer = setTimeout(() => {
+    const mountTimer = setTimeout(async () => {
       setIsMounted(true);
       
-      // Retrieve wishes from localStorage or fall back to weddingData initials
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
+      if (supabaseUrl && supabaseKey) {
+        try {
+          const res = await fetch(`${supabaseUrl}/rest/v1/wishes?select=*&order=created_at.desc`, {
+            headers: {
+              'apikey': supabaseKey,
+              'Authorization': `Bearer ${supabaseKey}`
+            }
+          });
+          if (res.ok) {
+            const data = await res.json();
+            setWishes(data);
+            return;
+          }
+        } catch (err) {
+          console.error("Supabase fetch error:", err);
+        }
+      }
+
+      // Fallback: Retrieve wishes from localStorage
       const saved = localStorage.getItem("wedding_wishes");
       if (saved) {
         try {
           setWishes(JSON.parse(saved));
         } catch (err) {
           console.error(err);
-          setWishes(weddingData.initialWishes);
+          setWishes([]);
         }
       } else {
-        setWishes(weddingData.initialWishes);
-        localStorage.setItem("wedding_wishes", JSON.stringify(weddingData.initialWishes));
+        setWishes([]);
       }
     }, 0);
 
     return () => clearTimeout(mountTimer);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim() || !message.trim()) return;
 
@@ -49,6 +79,41 @@ export default function Wishes() {
       date: new Date().toISOString().split("T")[0],
     };
 
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+
+    if (supabaseUrl && supabaseKey) {
+      try {
+        const res = await fetch(`${supabaseUrl}/rest/v1/wishes`, {
+          method: 'POST',
+          headers: {
+            'apikey': supabaseKey,
+            'Authorization': `Bearer ${supabaseKey}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=representation'
+          },
+          body: JSON.stringify({
+            id: newWish.id,
+            name: newWish.name,
+            message: newWish.message,
+            date: newWish.date
+          })
+        });
+        
+        if (res.ok) {
+          setWishes(prev => [newWish, ...prev]);
+          setName("");
+          setMessage("");
+          setIsSubmitting(false);
+          triggerConfetti();
+          return;
+        }
+      } catch (err) {
+        console.error("Supabase insert error:", err);
+      }
+    }
+
+    // Fallback: Save to localStorage
     setTimeout(() => {
       const updatedWishes = [newWish, ...wishes];
       setWishes(updatedWishes);
@@ -57,14 +122,7 @@ export default function Wishes() {
       setName("");
       setMessage("");
       setIsSubmitting(false);
-
-      // Celebration confetti
-      confetti({
-        particleCount: 80,
-        spread: 60,
-        origin: { y: 0.7 },
-        colors: ["#d4af37", "#0b3d2c", "#f3e5ab", "#ffffff"],
-      });
+      triggerConfetti();
     }, 600);
   };
 
@@ -155,7 +213,11 @@ export default function Wishes() {
           {/* Wishes List Container (3/5 size) */}
           <div className="lg:col-span-3 space-y-4 max-h-[500px] overflow-y-auto pr-2">
             <AnimatePresence mode="popLayout">
-              {isMounted && wishes.length > 0 ? (
+              {!isMounted ? (
+                <div className="h-48 flex items-center justify-center font-sans text-sm text-luxury-emerald/40 italic">
+                  Loading wishes...
+                </div>
+              ) : wishes.length > 0 ? (
                 wishes.map((wish) => (
                   <motion.div
                     key={wish.id}
@@ -180,8 +242,9 @@ export default function Wishes() {
                   </motion.div>
                 ))
               ) : (
-                <div className="h-48 flex items-center justify-center font-sans text-sm text-luxury-emerald/40 italic">
-                  Loading wishes...
+                <div className="h-48 flex flex-col items-center justify-center font-sans text-sm text-luxury-emerald/50 italic border border-dashed border-luxury-gold/25 rounded-2xl bg-white/20 p-6 text-center">
+                  <span>No wishes yet.</span>
+                  <span className="text-xs text-luxury-emerald/40 mt-1 not-italic">Be the first to leave your blessings and warm wishes!</span>
                 </div>
               )}
             </AnimatePresence>
