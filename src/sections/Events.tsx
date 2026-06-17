@@ -146,7 +146,7 @@ export default function Events() {
                 href={ceremony.mapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 py-3 px-4 bg-gold-gradient hover:brightness-105 text-luxury-emerald-dark text-xs tracking-widest uppercase rounded-full transition-all duration-300 font-sans cursor-pointer font-bold text-center shadow-md hover:shadow-lg hover:shadow-luxury-gold/10"
+                className="flex items-center justify-center gap-2 py-3 px-4 bg-gold-gradient hover:brightness-105 text-white text-xs tracking-widest uppercase rounded-full transition-all duration-300 font-sans cursor-pointer font-bold text-center shadow-md hover:shadow-lg hover:shadow-luxury-gold/10"
               >
                 <Map className="w-4 h-4 shrink-0" />
                 View Maps
@@ -254,7 +254,7 @@ export default function Events() {
                 href={reception.mapsLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 py-3 px-4 bg-gold-gradient hover:brightness-105 text-luxury-emerald-dark text-xs tracking-widest uppercase rounded-full transition-all duration-300 font-sans cursor-pointer font-bold text-center shadow-md hover:shadow-lg hover:shadow-luxury-gold/10"
+                className="flex items-center justify-center gap-2 py-3 px-4 bg-gold-gradient hover:brightness-105 text-white text-xs tracking-widest uppercase rounded-full transition-all duration-300 font-sans cursor-pointer font-bold text-center shadow-md hover:shadow-lg hover:shadow-luxury-gold/10"
               >
                 <Map className="w-4 h-4 shrink-0" />
                 View Maps

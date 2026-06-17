@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-luxury-emerald: #4a3c31; /* Replaced green with rich luxury bronze */
-  --color-luxury-emerald-dark: #2d231d; /* Replaced dark green with warm dark sepia */
-  --color-luxury-gold: #d4af37;
-  --color-luxury-gold-light: #f3e5ab;
-  --color-luxury-gold-dark: #aa7c11;
-  --color-luxury-cream: #fbfbf8;
-  --color-luxury-ivory: #fffff0;
-  --color-luxury-beige: #f5f5dc;
+  --color-luxury-emerald: #3b2119;
+  --color-luxury-emerald-dark: #1c100c;
+  --color-luxury-gold: #573125;
+  --color-luxury-gold-light: #7a4534;
+  --color-luxury-gold-dark: #3b2119;
+  --color-luxury-cream: #f7f4f2;
+  --color-luxury-ivory: #ffffff;
+  --color-luxury-beige: #efe9e5;
 
   --font-serif: var(--font-serif-cormorant), Georgia, serif;
   --font-script: var(--font-script-vibes), cursive;
@@ -43,10 +43,10 @@
 
   @keyframes gold-glow {
     0%, 100% {
-      filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.3));
+      filter: drop-shadow(0 0 2px rgba(87, 49, 37, 0.3));
     }
     50% {
-      filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.7));
+      filter: drop-shadow(0 0 8px rgba(87, 49, 37, 0.7));
     }
   }
 
@@ -61,8 +61,8 @@
 }
 
 :root {
-  --background: #fbfbf8; /* Luxury Cream */
-  --foreground: #4a3c31; /* Luxury Bronze */
+  --background: #f7f4f2; /* Light warm tint */
+  --foreground: #1c100c; /* Darkest brown */
 }
 
 /* Premium Layout & Decorative Styles */
@@ -79,56 +79,56 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #fbfbf8;
+  background: #f7f4f2;
 }
 ::-webkit-scrollbar-thumb {
-  background: #d4af37;
+  background: #573125;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #aa7c11;
+  background: #3b2119;
 }
 
 /* Custom Luxury Gradients & Utilities */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #f5d061 0%, #d4af37 50%, #aa7c11 100%);
+  background: linear-gradient(135deg, #7a4534 0%, #573125 50%, #3b2119 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .bg-gold-gradient {
-  background: linear-gradient(135deg, #f5d061 0%, #d4af37 50%, #aa7c11 100%);
+  background: linear-gradient(135deg, #7a4534 0%, #573125 50%, #3b2119 100%);
 }
 
 .bg-emerald-gold-gradient {
-  background: linear-gradient(135deg, #fbfbf8 0%, #eae3d2 100%);
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: linear-gradient(135deg, #f7f4f2 0%, #efe9e5 100%);
+  border: 1px solid rgba(87, 49, 37, 0.3);
 }
 
 .glass-card {
-  background: rgba(251, 251, 248, 0.75);
+  background: rgba(247, 244, 242, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  box-shadow: 0 10px 30px -10px rgba(74, 60, 49, 0.08);
+  border: 1px solid rgba(87, 49, 37, 0.2);
+  box-shadow: 0 10px 30px -10px rgba(87, 49, 37, 0.08);
 }
 
 .glass-card-dark {
-  background: rgba(74, 60, 49, 0.9); /* Replaced green with bronze sepia */
+  background: rgba(28, 16, 12, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 175, 55, 0.35);
+  border: 1px solid rgba(87, 49, 37, 0.35);
   box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.3);
 }
 
 /* Elegant border details */
 .gold-border-double {
-  border: 4px double #d4af37;
+  border: 4px double #573125;
 }
 
 .gold-border-thin {
-  border: 1px solid rgba(212, 175, 55, 0.4);
+  border: 1px solid rgba(87, 49, 37, 0.4);
 }
 
 /* Floral motif animation settings */

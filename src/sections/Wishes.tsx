@@ -213,10 +213,10 @@ export default function Wishes() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 px-6 bg-gold-gradient hover:brightness-105 disabled:brightness-95 text-luxury-emerald-dark font-sans text-xs tracking-widest uppercase font-bold rounded-xl flex items-center justify-center gap-2 shadow-md cursor-pointer transition-all duration-300"
+                  className="w-full py-3.5 px-6 bg-gold-gradient hover:brightness-105 disabled:brightness-95 text-white font-sans text-xs tracking-widest uppercase font-bold rounded-xl flex items-center justify-center gap-2 shadow-md cursor-pointer transition-all duration-300"
                 >
                   {isSubmitting ? (
-                    <div className="w-5 h-5 border-2 border-luxury-emerald-dark border-t-transparent rounded-full animate-spin" />
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                   ) : (
                     <>
                       <Send className="w-3.5 h-3.5" />

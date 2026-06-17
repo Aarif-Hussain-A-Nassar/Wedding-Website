@@ -127,7 +127,7 @@ export default function Contact() {
                   href={getWhatsAppLink(contact.phone, contact.whatsappText)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 py-3 px-3 bg-luxury-emerald hover:bg-luxury-emerald-dark text-luxury-gold-light hover:text-luxury-gold text-xs tracking-wider uppercase rounded-xl transition-all duration-300 font-sans font-semibold shadow-sm border border-luxury-gold/20"
+                  className="flex items-center justify-center gap-2 py-3 px-3 bg-luxury-emerald hover:bg-luxury-emerald-dark text-white text-xs tracking-wider uppercase rounded-xl transition-all duration-300 font-sans font-semibold shadow-sm border border-luxury-gold/20"
                 >
                   <MessageSquare className="w-4 h-4 shrink-0" />
                   WhatsApp
