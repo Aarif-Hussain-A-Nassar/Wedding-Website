@@ -77,8 +77,8 @@ export const weddingData: WeddingData = {
       ],
       address: [
         "Darul Hudha",
-        "Thirumalahagom P.O",
-        "Alappuzha",
+        "Maravattikkal, Thirumalabhagom",
+        "Thuravoor",
       ],
     },
     bride: {
