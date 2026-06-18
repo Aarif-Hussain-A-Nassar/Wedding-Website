@@ -39,7 +39,7 @@ export default function Couple() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 sm:gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-2 gap-4 sm:gap-8 lg:gap-16 items-stretch">
           
           {/* Groom Monogram Card */}
           <motion.div
@@ -48,17 +48,17 @@ export default function Couple() {
             whileInView="visible"
             viewport={{ once: true, margin: "0px" }}
             variants={cardVariants}
-            className="flex flex-col items-center text-center p-4 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl glass-card border border-luxury-gold/25 shadow-lg group hover:shadow-xl transition-all duration-300"
+            className="flex flex-col items-center justify-center text-center p-4 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl glass-card border border-luxury-gold/25 shadow-lg group hover:shadow-xl transition-all duration-300"
           >
             {/* Elegant Monogram Seal */}
-            <div className="relative w-28 h-28 sm:w-44 sm:h-44 md:w-64 md:h-64 rounded-full p-1.5 sm:p-2 border-2 border-luxury-gold/30 shadow-xl bg-white/40 flex items-center justify-center mb-4 sm:mb-8">
+            <div className="relative w-20 h-20 sm:w-36 sm:h-36 md:w-48 md:h-48 rounded-full p-1.5 sm:p-2 border-2 border-luxury-gold/30 shadow-xl bg-white/40 flex items-center justify-center mb-3 sm:mb-5">
               {/* Outer Double Border simulation */}
               <div className="absolute inset-1.5 border border-luxury-gold/15 rounded-full pointer-events-none" />
               {/* Inner dashed ring with slow rotation */}
               <div className="absolute inset-3.5 border border-dashed border-luxury-gold/20 rounded-full pointer-events-none" style={{ animation: "spin 40s linear infinite" }} />
               {/* Central badge with gold gradient and emerald accent */}
               <div className="absolute inset-4 sm:inset-5 rounded-full bg-gradient-to-br from-luxury-cream to-luxury-beige border border-luxury-gold/25 flex items-center justify-center shadow-inner group-hover:scale-105 transition-all duration-700 ease-out">
-                <span className="font-script text-[2rem] sm:text-[3.8rem] md:text-[4.5rem] text-gold-gradient select-none filter drop-shadow-[0_2px_4px_rgba(74,60,49,0.15)] leading-none pt-2 pr-4 pl-2">
+                <span className="font-script text-[1.5rem] sm:text-[3rem] md:text-[3.5rem] text-gold-gradient select-none filter drop-shadow-[0_2px_4px_rgba(74,60,49,0.15)] leading-none pt-2 pr-4 pl-2">
                   A
                 </span>
               </div>
@@ -67,11 +67,33 @@ export default function Couple() {
             <span className="font-sans text-[9px] sm:text-xs md:text-sm tracking-[0.2em] sm:tracking-[0.25em] uppercase text-luxury-gold-dark font-bold mb-1 sm:mb-2">
               The Groom
             </span>
-            <h3 className="font-serif text-sm sm:text-2xl md:text-3xl font-bold text-luxury-emerald-dark tracking-wide mb-2 sm:mb-4">
+            <h3 className="font-serif text-sm sm:text-2xl md:text-3xl font-bold text-luxury-emerald-dark tracking-wide mb-1 sm:mb-2">
               {groom.name}
             </h3>
 
-            <div className="flex items-center gap-1.5 sm:gap-2 mb-2 sm:mb-3 text-luxury-emerald/60">
+            {/* Grandparents lineage */}
+            {groom.grandparents && (
+              <>
+                <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-1.5 text-luxury-emerald/60">
+                  <div className="h-[1px] w-4 sm:w-6 bg-luxury-gold/30" />
+                  <span className="font-serif italic text-[9px] sm:text-xs md:text-sm">Grandson of</span>
+                  <div className="h-[1px] w-4 sm:w-6 bg-luxury-gold/30" />
+                </div>
+
+                <p className="font-sans text-[8px] sm:text-[10px] md:text-xs text-luxury-emerald/80 font-normal leading-snug mb-1.5 sm:mb-2">
+                  {groom.grandparents.paternal.grandfather}
+                  <span className="inline text-luxury-emerald/50"> &amp; </span>
+                  {groom.grandparents.paternal.grandmother}
+                  <span className="inline text-luxury-emerald/50"> &amp; </span>
+                  {groom.grandparents.maternal.grandfather}
+                  <span className="inline text-luxury-emerald/50"> &amp; </span>
+                  {groom.grandparents.maternal.grandmother}
+                </p>
+              </>
+            )}
+
+            {/* Parents lineage */}
+            <div className="flex items-center gap-1.5 sm:gap-2 mb-1 sm:mb-2 text-luxury-emerald/60">
               <div className="h-[1px] w-4 sm:w-6 bg-luxury-gold/30" />
               <span className="font-serif italic text-[10px] sm:text-sm md:text-base">Son of</span>
               <div className="h-[1px] w-4 sm:w-6 bg-luxury-gold/30" />
@@ -91,7 +113,7 @@ export default function Couple() {
             whileInView="visible"
             viewport={{ once: true, margin: "0px" }}
             variants={cardVariants}
-            className="flex flex-col items-center text-center p-4 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl glass-card border border-luxury-gold/25 shadow-lg group hover:shadow-xl transition-all duration-300"
+            className="flex flex-col items-center justify-center text-center p-4 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl glass-card border border-luxury-gold/25 shadow-lg group hover:shadow-xl transition-all duration-300"
           >
             {/* Elegant Monogram Seal */}
             <div className="relative w-28 h-28 sm:w-44 sm:h-44 md:w-64 md:h-64 rounded-full p-1.5 sm:p-2 border-2 border-luxury-gold/30 shadow-xl bg-white/40 flex items-center justify-center mb-4 sm:mb-8">

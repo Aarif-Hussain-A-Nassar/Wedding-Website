@@ -4,6 +4,10 @@ export interface Person {
     father: string;
     mother: string;
   };
+  grandparents?: {
+    paternal: { grandfather: string; grandmother: string };
+    maternal: { grandfather: string; grandmother: string };
+  };
   photo: string;
 }
 

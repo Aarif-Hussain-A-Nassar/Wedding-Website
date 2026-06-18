@@ -20,7 +20,11 @@ export const weddingData: WeddingData = {
     name: "Aarif Hussain A Nassar",
     parents: {
       father: "Nassar A",
-      mother: "Kamaruneesa PM",
+      mother: "Kamarunneesa PM",
+    },
+    grandparents: {
+      paternal: { grandfather: "Late Abdulkareem", grandmother: "Late Kochu Fathima" },
+      maternal: { grandfather: "Late PM Muhammed", grandmother: "Late Fathima PB" },
     },
     photo: "/images/groom-placeholder.png",
   },
@@ -65,7 +69,7 @@ export const weddingData: WeddingData = {
   family: {
     groom: {
       father: "Nassar A",
-      mother: "Kamaruneesa PM",
+      mother: "Kamarunneesa PM",
       siblings: [
         { name: "Ajmal Hussain A Nassar" },
         { name: "Jilsha Sara" },
